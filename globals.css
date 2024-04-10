@@ -9,15 +9,16 @@
   
   @font-face {
     font-family: 'Francois One';
-    src: url('/fonts/FrancoisOne-Regular.ttf') format('truetype');
+    src: url('/fonts/FrancoisOne-Regular.ttf');
   }
   
   * {
+    font-family: 'Josefin Sans', sans-serif; 
     box-sizing: border-box;
   }
   
   body {
-    font-family: 'Josefin Sans', sans-serif; /* Include generic sans-serif as fallback */
+    font-family: 'Josefin Sans', sans-serif; 
     margin: 0;
     padding: 0;
   }
@@ -28,6 +29,10 @@
     background-position: center;
   }
   
+  .not-draggable {
+    pointer-events: none;
+  }
+
   .alt-font {
     font-family: 'Francois One', sans-serif;
   }

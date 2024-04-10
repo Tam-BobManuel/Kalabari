@@ -1,12 +1,12 @@
 "use client"
 import Link from "next/link";
-import useWindowResize from '../hooks/use-WindowResize'
+import {onPC} from '../hooks/use-WindowResize'
 
 
 export default function Home() {
   // truthy means you're on Laptop, falsy means you're on mobile
   // It starts off as false
-  const onLaptop = useWindowResize(false); // Use the useWindowResize hook
+  const onLaptop = onPC(false); // Use the useWindowResize hook
   return (
     <main className={'min-h-screen myBackgroundImg flex items-center justify-center'}>
 
