@@ -1,0 +1,130 @@
+"use client"
+import Image, { type StaticImageData } from 'next/image';
+import Link from 'next/link';
+import { onPC, onTablet } from '../hooks/use-WindowResize';
+
+interface DuoCardProps {
+  text: React.ReactNode;
+  imageUrl: string | StaticImageData;
+  linkUrl: string;
+  linkText: string;
+  heading?: string;
+  reverse?: boolean;
+}
+
+const DuoCard: React.FC<DuoCardProps> = ({ text, imageUrl, linkUrl, linkText, reverse=false, heading, ...props}) => {
+  const onLaptop = onPC(false);
+  const onTab = onTablet(false);
+  // const cardStyle = {
+  //   display: 'flex',
+  //   flexDirection: reverse ? 'column-reverse' : 'column',
+  //   minHeight: '100vh',
+  //   background: `url(${imageUrl}) no-repeat center center`,
+  //   backgroundSize: 'cover',
+  //   position: 'relative',
+  // };
+
+  // const overlayStyle = {
+  //   position: 'absolute',
+  //   bottom: 0,
+  //   left: 0,
+  //   right: 0,
+  //   backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  //   padding: '20px',
+  //   color: 'white',
+  // };
+
+  return (
+    <div className={`pt-[9%] px-2 justify-center flex items-center w-full border-box contain h-screen contain border-box ${onLaptop ? 'flex-row' : 'flex-col'}`}>
+      {onLaptop? (
+        <>
+        <div className={`${reverse ? 'flex-row-reverse' : ''}`}>
+            <div className="w-[60%] h-[90%] container mr-5 inline justify-self-stretch overflow-hidden bg-white bg-opacity-[4%] p-5 ">
+              <span className="text-white justify-self-stretch max-w-sm text-base">
+                {text}
+              </span>
+              <div className="mt-[5%] mx-0 px-0 pl-0 w-full border-box container relative">
+                <Link href={linkUrl} passHref>
+                  <span className="text-black bg-white text-xl mx-0 ml-0 px-4 py-2 rounded-md">{linkText}</span>
+                </Link>
+              </div>
+            </div>
+            <div className="w-[40%] h-[90%] inline justify-self-stretch overflow-hidden">
+              <Image src={imageUrl} alt="some Images on the Kalabari culture" className="object-cover h-full w-full" />
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="w-full h-[50%] inline justify-self-stretch overflow-hidden">
+            <Image src={imageUrl} alt="Custom Image" className="object-cover h-full w-full" />
+          </div>
+          <div className="w-full container inline justify-self-stretch bg-white bg-opacity-[4%] p-5">
+            <h1 className='text-white text-2xl center'>{heading}</h1>
+            <span className="text-white justify-self-stretch max-w-sm text-base">
+              {text}
+            </span>
+            <div className="mt-3">
+              <Link href={linkUrl} passHref>
+                <span className="text-black bg-white text-xl px-4 py-2 rounded-md">{linkText}</span>
+              </Link>
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
+
+export default DuoCard;
+
+
+
+
+
+import React from 'react';
+import Link from 'next/link';
+
+interface DuoCardProps {
+  text: React.ReactNode;
+  imageUrl: string | StaticImageData;
+  linkUrl: string;
+  linkText: string;
+  reverse?: boolean;
+}
+
+const DuoCard: React.FC<DuoCardProps> = ({ text, imageUrl, linkUrl, linkText, reverse = false, ...props }) => {
+  const cardStyle = {
+    display: 'flex',
+    flexDirection: reverse ? 'column-reverse' : 'column',
+    minHeight: '100vh',
+    background: `url(${imageUrl}) no-repeat center center`,
+    backgroundSize: 'cover',
+    position: 'relative',
+  };
+
+  const overlayStyle = {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    padding: '20px',
+    color: 'white',
+  };
+
+  return (
+    <div style={cardStyle}>
+      <div style={overlayStyle}>
+        <span className="text-white justify-self-stretch max-w-sm text-base">{text}</span>
+        <div className="mt-3">
+          <Link href={linkUrl} passHref>
+            <a className="text-black bg-white text-xl px-4 py-2 rounded-md">{linkText}</a>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default DuoCard;

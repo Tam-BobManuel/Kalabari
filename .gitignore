@@ -6,6 +6,11 @@
 .pnp.js
 .yarn/install-state.gz
 
+#service workers
+sw*
+sw.js.map
+workbox*
+
 # testing
 /coverage
 
