@@ -5,8 +5,25 @@ const Footer = () => {
     <div>
       <div className="bg-black py-5"></div>
       <div className="bg-[#3c3d45]">
-        <div className="text-white w-11/12 my-0 mx-auto flex pt-5 pb-2">
-          <div>Left</div>
+        <div className="text-white w-11/12 my-0 mx-auto flex items-center justify-between pt-5 pb-2">
+          <div className="flex flex-col gap-y-1.5 text-right w-fit">
+            <h3 className="font-normal text-sm">SUBSCRIBE TO OUR NEWS LETTTER</h3>
+            <div className="flex items-center gap-x-2.5 justify-end border-b border-[#8D8D8D]">
+              <div className="basis-1/2 w-full">
+                <input
+                  type="text"
+                  placeholder="Enter your email address"
+                  className="text-[#737C87] outline-[#737C87] text-sm font-normal w-[256px] py-1 px-3 bg-transparent"
+                />
+              </div>
+              <div className="text-[#737C87]">|</div>
+              <div className="basis-1/4">
+                <button className="flex items-center gap-x-2.5 text-sm text-[#737C87] font-normal p-2.5">
+                  Subscribe <img src="/icons/Arrow Up.svg" alt="Arrow Up" />
+                </button>
+              </div>
+            </div>
+          </div>
           <div>Right</div>
         </div>
       </div>

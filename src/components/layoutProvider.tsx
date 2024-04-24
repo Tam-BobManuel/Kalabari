@@ -10,7 +10,6 @@ export const LayoutProvider = ({ children }: {children: React.ReactNode;}) => {
         <>
             {pathname.includes("/admin") ? null : <NavBar />}
             {children}
-            <Footer/>
         </>
     );
 };
