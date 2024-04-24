@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
@@ -7,7 +8,9 @@ const Footer = () => {
       <div className="bg-[#3c3d45]">
         <div className="text-white w-11/12 my-0 mx-auto flex items-center justify-between pt-5 pb-2">
           <div className="flex flex-col gap-y-1.5 text-right w-fit">
-            <h3 className="font-normal text-sm">SUBSCRIBE TO OUR NEWS LETTTER</h3>
+            <h3 className="font-normal text-sm">
+              SUBSCRIBE TO OUR NEWS LETTTER
+            </h3>
             <div className="flex items-center gap-x-2.5 justify-end border-b border-[#8D8D8D]">
               <div className="basis-1/2 w-full">
                 <input
@@ -24,7 +27,28 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div>Right</div>
+          <div className="flex flex-col gap-y-1.5 text-right w-fit">
+            <h3 className="font-normal text-sm">
+              CONTACT US
+            </h3>
+            <div className="flex items-center gap-x-2.5">
+              <Link href="">
+              <img src="/icons/Facebook.svg" alt="Facebook" />
+              </Link>
+              <Link href="">
+              <img src="/icons/Tik Tok.svg" alt="Tik Tok" />
+              </Link>
+              <Link href="">
+              <img src="/icons/Instagram.svg" alt="Instagram" />
+              </Link>
+              <Link href="">
+              <img src="/icons/Email.svg" alt="Email" />
+              </Link>
+              <Link href="">
+              <img src="/icons/X.svg" alt="X" />
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
       <div className="bg-black py-3.5">
