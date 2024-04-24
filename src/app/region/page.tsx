@@ -1,9 +1,15 @@
-import React from 'react'
+import Footer from "@/components/Footer";
+import React from "react";
 
 const page = () => {
   return (
-    <div>page</div>
-  )
-}
+    <div>
+      <div className="h-screen">
+        <h1>Region</h1>
+      </div>
+      <Footer />
+    </div>
+  );
+};
 
-export default page
+export default page;
