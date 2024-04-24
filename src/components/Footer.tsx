@@ -4,10 +4,10 @@ import React from "react";
 const Footer = () => {
   return (
     <div>
-      <div className="bg-black py-5"></div>
+      <div className="bg-[#0B0D17] py-5"></div>
       <div className="bg-[#3c3d45]">
-        <div className="text-white w-11/12 my-0 mx-auto flex flex-col-reverse gap-y-3.5 lg:flex-row items-center justify-between pt-5 pb-2">
-          <div className="flex flex-col text-center gap-y-1.5 lg:text-right w-fit">
+        <div className="text-white w-11/12 my-0 mx-auto flex flex-col-reverse gap-y-3.5 md:flex-row lg:flex-row items-center justify-between pt-5 pb-2">
+          <div className="flex flex-col text-center gap-y-1.5 md:text-right lg:text-right w-fit">
             <h3 className="font-normal text-sm">
               SUBSCRIBE TO OUR NEWS LETTTER
             </h3>
@@ -27,7 +27,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-center gap-y-1.5 lg:text-right w-fit">
+          <div className="flex flex-col items-center gap-y-1.5 md:items-end lg:items-end w-fit">
             <h3 className="font-normal text-sm">
               CONTACT US
             </h3>
@@ -51,7 +51,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="bg-black py-3.5">
+      <div className="bg-[#0B0D17] py-3.5">
         <p className="text-center text-[#6C6C6C] font-medium text-base leading-5">
           Copywrite @ 2024. name, All rights reserved
         </p>
