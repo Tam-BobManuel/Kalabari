@@ -95,6 +95,9 @@ const config = {
         'drawer-right-to-left': 'drawer-right-to-left 0.3s ease-in-out',
       },
     },
+    // colors:{
+    //   "gray": "#6C6C6C",
+    // },
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config
