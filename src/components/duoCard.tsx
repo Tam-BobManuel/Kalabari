@@ -35,9 +35,8 @@ const DuoCard: React.FC<DuoCardProps> = ({ text, imageUrl, mobileImageUrl, linkU
         <>
           <div className={`${reverse ? 'flex-row-reverse' : ''} pt-0  px-2 flex mb-[20px] h-[3/4] overflow-none ${onLaptop ? 'flex-row' : 'flex-col'}`}>
             <div className={`w-[60%] h-[70%] container ${reverse ? 'ml-5' :'mr-5'} inline justify-self-stretch overflow-hidden bg-white bg-opacity-[4%] p-5`}>
-              {pathname === '/history' ? ('') 
-              : (<h1 className="text-center text-white text-3xl">{heading}</h1>)
-              }
+              {/* {pathname === '/history' ? ('')  */}
+              <h1 className="text-center text-white text-3xl">{heading}</h1>
               <span className="text-white justify-self-stretch max-w-sm text-base">
                 {text}
               </span>

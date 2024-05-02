@@ -2,7 +2,7 @@
 // Use usePathname for catching route name.
 import { usePathname } from "next/navigation";
 import NavBar from "./NavBar";
-import Footer from "./Footer";
+import Footer from "@/components/footer";
 
 export const LayoutProvider = ({ children }: {children: React.ReactNode;}) => {
     const pathname = usePathname();
@@ -10,6 +10,7 @@ export const LayoutProvider = ({ children }: {children: React.ReactNode;}) => {
         <>
             {pathname.includes("/admin") ? null : <NavBar />}
             {children}
+            {pathname !== "/" && <Footer />}
         </>
     );
 };

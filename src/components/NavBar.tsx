@@ -69,7 +69,7 @@ export default function NavBar() {
   const pathname = usePathname();
 
   return (
-    <nav className={`flex items-center justify-between w-full p-0 pl-5 mb-[10px]  ${pathname === "/" ? "fixed top-[4%] w-[90%]" : "sticky top-[2%] w-full"}`}>
+    <nav className={`flex items-center justify-between w-full p-0 pl-5 mb-[10px] z-50 ${pathname === "/" ? "fixed top-[4%] w-[90%]" : "sticky top-[2%] w-full"}`}>
       <Sheet>
         <div className='rounded-full inline w-[50px] overflow-hidden'>
           <Image src={logo} alt="website logo, click to go back" onClick={() => router.back()} />

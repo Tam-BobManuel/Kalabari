@@ -3,6 +3,8 @@ import Ecran from '@/assets/Images/history-img/Ecran-Kalabari-Art.jpg';
 import Wharf from '@/assets/Images/history-img/Abonnema Wharf.jpeg';
 import DuoCard from '@/components/duoCard';
 import ReactHtmlParser from 'react-html-parser';
+import regionNames from '@/assets/data/regionNames.json';
+import Back from '@/components/back';
 
 const briefAbonnema = `From the bustling trading hub of Abonnema to the tranquil riverside settlements like Buguma, the towns of the Kalabari Kingdom offer a glimpse into the rich cultural heritage and economic dynamism of the 
 region.
@@ -17,25 +19,21 @@ const briefRegion = `From the bustling trading hub of Abonnema to the tranquil r
 
 export default function Region() {
   return (
-    <main className={'bg-darkk'} aria-label="You're at the History section">
-      <DuoCard
-        text={ReactHtmlParser(briefAbonnema)}
-        imageUrl={Ecran}
-        mobileImageUrl={Ecran.src}
-        linkUrl={`/history/kalabari`}
-        linkText="More Details"
-        heading='ABONNEMA'
-        reverse={false}
-      />
-       <DuoCard
-        text={ReactHtmlParser(briefRegion)}
-        imageUrl={Wharf}
-        mobileImageUrl={Wharf.src}
-        linkUrl="/history/kalabari/regions"
-        linkText="Explore"
-        heading='BUGUMA'
-        reverse={true}
-      />
+    <main className={'bg-darkk p-2'} aria-label="You're at the History section">
+      <Back/>
+      <br/>
+      {regionNames.map((region, index) => (
+        <DuoCard
+          key={index}
+          text={ReactHtmlParser(region.brief)}
+          imageUrl={Ecran}
+          mobileImageUrl={Ecran}
+          linkUrl={`/history/kalabari/regions/${region.slug}`}
+          linkText="Explore"
+          heading={region.name}
+          reverse={index % 2 === 0}
+        />
+      ))}
     </main>
   );
 }

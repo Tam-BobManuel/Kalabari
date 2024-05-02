@@ -35,6 +35,15 @@ export default function History() {
         heading='REGIONS'
         reverse={true}
       />
+      <DuoCard
+       text={ReactHtmlParser(briefRegion)}
+       imageUrl={Wharf}
+       mobileImageUrl={Wharf.src}
+       linkUrl="/history/kalabari/royal"
+       linkText="Explore"
+       heading='ROYALTIES'
+       reverse={false}
+     />
     </main>
   );
 }
