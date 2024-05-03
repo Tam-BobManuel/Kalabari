@@ -1,5 +1,5 @@
 "use client"
-import { useOnPC } from '@/hooks/use-WindowResize';
+import { useOnPC } from '@/hooks/useWindowResize';
 import { HiOutlineSearch } from "react-icons/hi";
 
 export default function Search() {

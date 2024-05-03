@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link";
 import "../../globals.css";
-import {useOnPC} from '../hooks/use-WindowResize'
+import {useOnPC} from '../hooks/useWindowResize'
 
 
 export default function Home() {

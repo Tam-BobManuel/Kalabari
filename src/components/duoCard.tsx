@@ -1,7 +1,7 @@
 "use client"
 import Image, { type StaticImageData } from 'next/image';
 import Link from 'next/link';
-import { useOnPC } from '../hooks/use-WindowResize';
+import { useOnPC } from '../hooks/useWindowResize';
 import imgPlaceholder from '../assets/Images/home-Img/Blurred-GI5YHyFXsAAHRGi.svg';
 import { usePathname } from 'next/navigation';
 
