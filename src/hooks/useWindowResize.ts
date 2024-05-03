@@ -1,14 +1,12 @@
-"use client"
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 
-// Function takes true ot false
+// Custom Hook to detect PC screen size
 export const useOnPC = (initialValue: boolean): boolean => {
-  const [windowSize, setWindowSize] = useState(initialValue);
+  const [isPC, setIsPC] = useState(initialValue);
 
   useEffect(() => {
     function handleResize() {
-        // anything above width of 940 is truthy and below or equal to that is falsy
-      setWindowSize(window.innerWidth >= 896);
+      setIsPC(window.innerWidth >= 896);
     }
 
     window.addEventListener('resize', handleResize);
@@ -17,16 +15,16 @@ export const useOnPC = (initialValue: boolean): boolean => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  return windowSize;
+  return isPC;
 };
 
+// Custom Hook to detect Tablet screen size
 export const useOnTablet = (initialValue: boolean): boolean => {
-  const [windowSize, setWindowSize] = useState(initialValue);
+  const [isTablet, setIsTablet] = useState(initialValue);
 
   useEffect(() => {
     function handleResize() {
-        // anything above width of 940 is truthy and below or equal to that is falsy
-      setWindowSize(window.innerWidth >= 700);
+      setIsTablet(window.innerWidth >= 700);
     }
 
     window.addEventListener('resize', handleResize);
@@ -35,5 +33,5 @@ export const useOnTablet = (initialValue: boolean): boolean => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  return windowSize;
+  return isTablet;
 };
