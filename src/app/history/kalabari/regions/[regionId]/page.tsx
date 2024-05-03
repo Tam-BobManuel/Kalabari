@@ -1,5 +1,5 @@
 import regionNames from '@/assets/data/regionNames.json';
-import Back from '@/components/back'; // Capitalize the component name
+import Back from '@/components/Back'; // Capitalize the component name
 import { notFound } from 'next/navigation';
 import ReactHtmlParser from 'react-html-parser'; // Import ReactHtmlParser
 

@@ -1,10 +1,10 @@
 import React from 'react';
 import Ecran from '@/assets/Images/history-img/Ecran-Kalabari-Art.jpg';
 import Wharf from '@/assets/Images/history-img/Abonnema Wharf.jpeg';
-import DuoCard from '@/components/duoCard';
+import DuoCard from '@/components/DuoCard';
 import ReactHtmlParser from 'react-html-parser';
 import regionNames from '@/assets/data/regionNames.json';
-import Back from '@/components/back';
+import Back from '@/components/Back';
 
 const briefAbonnema = `From the bustling trading hub of Abonnema to the tranquil riverside settlements like Buguma, the towns of the Kalabari Kingdom offer a glimpse into the rich cultural heritage and economic dynamism of the 
 region.

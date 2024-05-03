@@ -2,7 +2,7 @@
 // Use usePathname for catching route name.
 import { usePathname } from "next/navigation";
 import NavBar from "./NavBar";
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 
 export const LayoutProvider = ({ children }: {children: React.ReactNode;}) => {
     const pathname = usePathname();

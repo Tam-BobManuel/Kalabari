@@ -1,7 +1,7 @@
 import React from 'react';
 import Ecran from '../../assets/Images/history-img/Ecran-Kalabari-Art.jpg';
 import Wharf from '../../assets/Images/history-img/Abonnema Wharf.jpeg';
-import DuoCard from '@/components/duoCard';
+import DuoCard from '@/components/DuoCard';
 import ReactHtmlParser from 'react-html-parser';
 
 const briefKalabari = `The Kalabari are a sub-group of the Ijaw people living in the eastern Niger Delta region of Nigeria. Originally, they were known as the Awome. The name Kalabari was derived from their ancestor Perebokelekeibari who was a son of Mein Owei.
