@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 
 // Function takes true ot false
-export const onPC = (initialValue: boolean): boolean => {
+export const useOnPC = (initialValue: boolean): boolean => {
   const [windowSize, setWindowSize] = useState(initialValue);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export const onPC = (initialValue: boolean): boolean => {
   return windowSize;
 };
 
-export const onTablet = (initialValue: boolean): boolean => {
+export const useOnTablet = (initialValue: boolean): boolean => {
   const [windowSize, setWindowSize] = useState(initialValue);
 
   useEffect(() => {

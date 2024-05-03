@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import logo from "../assets/logo.png";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
-import { onPC, onTablet } from '../hooks/use-WindowResize';
+import { useOnPC, useOnTablet } from '../hooks/use-WindowResize';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetClose, SheetTrigger } from "@/components/ui/sheet";
 
 const navItems = [
@@ -63,8 +63,8 @@ const MobileMenu = ({ navItems, pathname }: MobileMenuProps)=> {
 };
 
 export default function NavBar() {
-  const onLaptop = onPC(false);
-  const onTab = onTablet(false);
+  const onLaptop = useOnPC(false);
+  const onTab = useOnTablet(false);
   const router = useRouter();
   const pathname = usePathname();
 

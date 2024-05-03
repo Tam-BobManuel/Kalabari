@@ -1,9 +1,9 @@
 "use client"
-import { onPC } from '@/hooks/use-WindowResize';
+import { useOnPC } from '@/hooks/use-WindowResize';
 import { HiOutlineSearch } from "react-icons/hi";
 
 export default function Search() {
-  const onLaptop = onPC(false);
+  const onLaptop = useOnPC(false);
   return (
        <>
         {onLaptop?(

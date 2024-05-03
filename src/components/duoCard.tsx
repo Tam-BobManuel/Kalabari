@@ -1,7 +1,7 @@
 "use client"
 import Image, { type StaticImageData } from 'next/image';
 import Link from 'next/link';
-import { onPC } from '../hooks/use-WindowResize';
+import { useOnPC } from '../hooks/use-WindowResize';
 import imgPlaceholder from '../assets/Images/home-Img/Blurred-GI5YHyFXsAAHRGi.svg';
 import { usePathname } from 'next/navigation';
 
@@ -17,7 +17,7 @@ interface DuoCardProps {
 
 const DuoCard: React.FC<DuoCardProps> = ({ text, imageUrl, mobileImageUrl, linkUrl, linkText, heading, reverse }) => {
   const pathname = usePathname();
-  const onLaptop = onPC(false);
+  const onLaptop = useOnPC(false);
   if (mobileImageUrl==='' || mobileImageUrl=== null || mobileImageUrl===undefined) {
     mobileImageUrl = imgPlaceholder.src;
   }
