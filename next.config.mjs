@@ -5,6 +5,10 @@ const withPWA = withPWAInit({
     dest: "public",
 });
 
-const nextConfig = {};
+const nextConfig = {
+    images: {
+        domains: ['images.unsplash.com', 'unsplash.com', 'plus.unsplash.com'],
+      },
+};
 
 export default withPWA(nextConfig);

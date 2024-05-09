@@ -1,4 +1,4 @@
-import Back from '@/components/Back'
+import Back from '@/components/back'
 import React from 'react'
 
 function kalabari() {

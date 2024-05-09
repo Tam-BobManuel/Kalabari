@@ -30,7 +30,7 @@ const DuoCard: React.FC<DuoCardProps> = ({ text, imageUrl, mobileImageUrl, linkU
   
 
   return (
-    <div className={`px-2 justify-center flex items-center w-full contain border-box overflow-hidden ${onLaptop ? 'flex-row' : 'flex-col'}`}>
+    <div className={` justify-center flex items-center w-full contain border-box overflow-hidden ${onLaptop ? 'flex-row' : 'flex-col'}`}>
       {onLaptop? (
         <>
           <div className={`${reverse ? 'flex-row-reverse' : ''} pt-0  px-2 flex mb-[20px] h-[3/4] overflow-none ${onLaptop ? 'flex-row' : 'flex-col'}`}>
