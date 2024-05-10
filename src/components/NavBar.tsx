@@ -11,7 +11,8 @@ const navItems = [
   { path: "/", label: "HOME" },
   { path: "/history", label: "HISTORY" },
   { path: "/photos", label: "PHOTOS" },
-  { path: "/login", label: "LOGIN" }
+  // { path: "/login", label: "LOGIN" },
+  { path: "/donate", label: "DONATE" }
 ];
 
 interface CommonLinkProps {

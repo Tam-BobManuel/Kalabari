@@ -1,5 +1,5 @@
 import regionNames from '@/assets/data/regionNames.json';
-import Back from '@/components/Back'; // Capitalize the component name
+import Back from '@/components/back'; // Capitalize the component name
 import { notFound } from 'next/navigation';
 import ReactHtmlParser from 'react-html-parser'; // Import ReactHtmlParser
 
@@ -12,7 +12,7 @@ export default function RegionDetails({ params }: { params: { regionId: string }
   }
 
   return (
-    <main className='p-3'>
+    <main className='p-2'>
       <Back /> {/* Use the Back component */}
       <h1 className='text-4xl text-center'>{regionId.charAt(0).toUpperCase() + regionId.slice(1)}</h1>
       <p>
