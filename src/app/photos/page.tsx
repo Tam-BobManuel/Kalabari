@@ -1,26 +1,44 @@
+"use client"
 import Search from '@/components/search';
 import Image from 'next/image';
 import Link from 'next/link';
-import data from '@/assets/data/photos.json';
+import { useState,useEffect } from 'react';
+
+interface Image {
+  id: string;
+  data: {
+    image: any;
+    title: string;
+    description: string;
+  };
+}
 
 export default function Photos() {
+  const [images, setImages] = useState<Image[]>([]);
+
+  useEffect(() => {
+    fetch(`https://cdn.builder.io/api/v3/content/images?apiKey=${process.env.NEXT_PUBLIC_BUILDER_IO_API!}`)
+      .then(response => response.json())
+      .then(data => setImages(data.results));
+  }, []);
+  
   return (
     <main className={'bg-darkk p-2'} aria-label="You're at the Photos Section">
       <Search />
       <section className="photos-grid grid md:grid-cols-4 sm:grid-cols-2 xs:grid-cols-1 gap-4 w-full">
-        {data.map((photo) => (
-          <div key={photo.slug} className="photo-item">
-            <Link href={photo.photo}>
+        {images?.map((photo) => (
+          <div key={photo.id} className="photo-item">
+            <Link href={photo.data.image}>
               <div className='relative'>
                 <Image
-                  src={photo.photo}
-                  alt={photo.name}
+                  src={photo.data.image}
+                  alt={photo.data.title}
                   objectFit='cover'
                   className='w-full h-full'
                   width={1665}
                   height={100}
                 />
-                <p className='absolute bottom-0 left-0 w-full text-center bg-gray-900 text-white py-2'>{photo.slug}</p>
+                <p className='absolute bottom-0 left-0 w-full text-center bg-gray-900 text-white py-2'>{photo.data.title}</p>
               </div>
             </Link>
           </div>
