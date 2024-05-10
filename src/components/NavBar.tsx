@@ -100,7 +100,7 @@ export default function NavBar() {
                     <SheetTrigger><HiOutlineMenu size={32} aria-label='Mobile menu' /></SheetTrigger>
                   </li>
                 </ul>
-                <MobileMenu navItems={navItems} pathname={pathname} /> 
+                <MobileMenu navItems={navItems} pathname={pathname ? String(pathname) : ''} />
               </div>
             )}
           </>
