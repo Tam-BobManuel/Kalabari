@@ -47,7 +47,7 @@ const DuoCard: React.FC<DuoCardProps> = ({ text, imageUrl, mobileImageUrl, linkU
               </div>
             </div>
             <div className="w-[40%] max-h-[450px] inline justify-self-stretch overflow-hidden">
-              <Image src={imageUrl} alt="some Images on the Kalabari culture" objectFit='cover' />
+              <Image src={imageUrl} alt="some Images on the Kalabari culture" objectFit='cover' width={1665}height={100}/>
             </div>
           </div>
         </>

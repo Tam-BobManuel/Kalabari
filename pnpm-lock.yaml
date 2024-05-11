@@ -32,6 +32,9 @@ dependencies:
   dotenv:
     specifier: ^16.4.5
     version: 16.4.5
+  ijaw-names:
+    specifier: ^0.0.1
+    version: 0.0.1
   lucide-react:
     specifier: ^0.367.0
     version: 0.367.0(react@18.2.0)
@@ -3840,6 +3843,10 @@ packages:
     resolution: {integrity: sha512-5Fytz/IraMjqpwfd34ke28PTVMjZjJG2MPn5t7OE4eUCUNf8BAa7b5WUS9/Qvr6mwOQS7Mk6vdsMno5he+T8Xw==}
     engines: {node: '>= 4'}
     dev: true
+
+  /ijaw-names@0.0.1:
+    resolution: {integrity: sha512-0/WN36ZNyUncweKrQ6BCk5sxCQZBAr0oUJxQA8egvaxiRJ5lJEH++GIdaz8VvMZEyh9kmYRIHGhQJl8hVg2Eqw==}
+    dev: false
 
   /import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}

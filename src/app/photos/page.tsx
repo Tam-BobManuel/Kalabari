@@ -4,20 +4,20 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState,useEffect } from 'react';
 
-interface Image {
+interface Imager {
   id: string;
   data: {
-    image: any;
+    image: string;
     title: string;
     description: string;
   };
 }
 
 export default function Photos() {
-  const [images, setImages] = useState<Image[]>([]);
+  const [images, setImages] = useState<Imager[]>([]);
 
   useEffect(() => {
-    fetch(`https://cdn.builder.io/api/v3/content/images?apiKey=${process.env.NEXT_PUBLIC_BUILDER_IO_API!}`)
+    fetch(`https://cdn.builder.io/api/v3/content/images?apiKey=${process.env.NEXT_PUBLIC_BUILDER_IO_API}`)
       .then(response => response.json())
       .then(data => setImages(data.results));
   }, []);
