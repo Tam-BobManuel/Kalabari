@@ -3,7 +3,7 @@
 import {useEffect } from 'react';
 import { usePathname } from "next/navigation";
 import NavBar from "./NavBar";
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 
 export const LayoutProvider = ({ children }: {children: React.ReactNode;}) => {
     useEffect(() => {

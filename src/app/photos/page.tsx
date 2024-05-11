@@ -1,5 +1,5 @@
 "use client"
-import Search from '@/components/search';
+import Search from '@/components/Search';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState,useEffect } from 'react';
