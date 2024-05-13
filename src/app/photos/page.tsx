@@ -1,8 +1,8 @@
-"use client"
-import Search from '@/components/Search';
+'use client'
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState,useEffect } from 'react';
+import Search from '@/components/Search';
 
 interface Imager {
   id: string;
@@ -15,18 +15,22 @@ interface Imager {
 
 export default function Photos() {
   const [images, setImages] = useState<Imager[]>([]);
+  const [filteredImages, setFilteredImages] = useState<Imager[]>([]);
 
   useEffect(() => {
     fetch(`https://cdn.builder.io/api/v3/content/images?apiKey=${process.env.NEXT_PUBLIC_BUILDER_IO_API}`)
       .then(response => response.json())
-      .then(data => setImages(data.results));
+      .then(data => {
+        setImages(data.results);
+        setFilteredImages(data.results);
+      });
   }, []);
-  
+
   return (
     <main className={'bg-darkk p-2'} aria-label="You're at the Photos Section">
-      <Search />
+      <Search images={images} setFilteredImages={setFilteredImages} />
       <section className="photos-grid grid md:grid-cols-4 sm:grid-cols-2 xs:grid-cols-1 gap-4 w-full">
-        {images?.map((photo) => (
+        {filteredImages?.map((photo) => (
           <div key={photo.id} className="photo-item">
             <Link href={photo.data.image}>
               <div className='relative'>
