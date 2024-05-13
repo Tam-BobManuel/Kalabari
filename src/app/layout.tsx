@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 // import { Inter } from "next/font/google";
 import "../../globals.css";
-import { LayoutProvider } from "../components/layoutProvider";
+import { LayoutProvider } from "../components/LayoutProvider";
 
 // const inter = Inter({ subsets: ["latin"] });
 const APP_NAME="Kalabari culture";

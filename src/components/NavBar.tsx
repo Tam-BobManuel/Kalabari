@@ -4,13 +4,14 @@ import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import logo from "../assets/logo.png";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
-import { useOnPC, useOnTablet } from '../hooks/useWindowResize';
+import { useOnPC, useOnTablet } from '@/hooks/useWindowResize';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetClose, SheetTrigger } from "@/components/ui/sheet";
 
 const navItems = [
   { path: "/", label: "HOME" },
   { path: "/history", label: "HISTORY" },
   { path: "/photos", label: "PHOTOS" },
+  {path: "/names", label: 'NAMES'},
   // { path: "/login", label: "LOGIN" },
   { path: "/donate", label: "DONATE" }
 ];

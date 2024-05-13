@@ -1,4 +1,4 @@
-import Back from '@/components/back'
+import Back from '@/components/Back'
 import React from 'react'
 
 function Royal() {
