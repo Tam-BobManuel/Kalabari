@@ -37,7 +37,6 @@ export default function Photos() {
                 <Image
                   src={photo.data.image}
                   alt={photo.data.title}
-                  objectFit='cover'
                   className='w-full h-full'
                   width={1665}
                   height={100}

@@ -36,11 +36,9 @@ export default function Page() {
         }
       } else {
         setMeaning('Name not found');
-        console.log('error should have occured')
       }
     } else {
-      setMeaning('');
-      console.log('this bastard ran')
+      setError('Please use the input field');
     }
   };
 
