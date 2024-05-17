@@ -113,7 +113,7 @@ const Footer = () => {
                           />
                           <DialogFooter>
                           <Button type="submit" className="w-full mt-4 text-xl">
-                            Save changes
+                            Send message
                           </Button>
                       </DialogFooter>
                       </form>
