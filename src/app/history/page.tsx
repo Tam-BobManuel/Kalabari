@@ -1,7 +1,7 @@
 import React from 'react';
 import Ecran from '../../assets/Images/history-img/Ecran-Kalabari-Art.jpg';
 import Wharf from '../../assets/Images/history-img/Abonnema Wharf.jpeg';
-import DuoCard from '@/components/DuoCard';
+import DuoCard from '@/components/duoCard';
 import ReactHtmlParser from 'react-html-parser';
 
 const briefKalabari = `

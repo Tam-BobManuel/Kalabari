@@ -1,6 +1,6 @@
 'use client'
 import regionNames from '@/assets/data/regionNames.json';
-import Back from '@/components/Back';
+import Back from '@/components/back';
 import { notFound } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import ReactHtmlParser from 'react-html-parser';
