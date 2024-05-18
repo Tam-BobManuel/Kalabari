@@ -8,7 +8,7 @@ class MyDocument extends Document {
           <link rel="manifest" href="/manifest.json" />
           {/* Add other head elements here */}
         </Head>
-        <body>
+        <body className='bg-darkk'>
           <Main />
           <NextScript />
         </body>

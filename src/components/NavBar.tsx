@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'; // Added import for useEffect
+"use client"
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
@@ -11,9 +12,8 @@ const navItems = [
   { path: "/", label: "HOME" },
   { path: "/history", label: "HISTORY" },
   { path: "/photos", label: "PHOTOS" },
-  {path: "/names", label: 'NAMES'},
-  // { path: "/login", label: "LOGIN" },
-  { path: "/about-us.php", label: "ABOUT US" }
+  { path: "/names", label: 'NAMES' }
+  // { path: "/about-us.php", label: "ABOUT US" }
 ];
 
 interface CommonLinkProps {
@@ -22,7 +22,7 @@ interface CommonLinkProps {
   isActive: boolean;
 }
 
-const CommonLink = ({ path, label, isActive }: CommonLinkProps)=> (
+const CommonLink = ({ path, label, isActive }: CommonLinkProps) => (
   <Link href={path}>
     <p className={`p-5 ${isActive ? "border-b" : ""}`} aria-label={`Navigate to ${label}`}>
       <span className='text-base'>
@@ -35,27 +35,35 @@ const CommonLink = ({ path, label, isActive }: CommonLinkProps)=> (
 interface MobileMenuProps {
   navItems: { path: string; label: string }[];
   pathname: string;
+  closeMenu: () => void;
 }
 
-const MobileMenu = ({ navItems, pathname }: MobileMenuProps)=> {
+const MobileMenu = ({ navItems, pathname, closeMenu }: MobileMenuProps) => {
+  const router = useRouter();
 
-  useEffect(() => {});
+  const handleNavigation = (path: string) => {
+    closeMenu(); // Close the menu
+    router.push(path); // Navigate to the selected path
+  };
 
   return (
     <SheetContent className='w-full bg-slate-950 bg-opacity-[90%] text-white border-none'>
       <SheetHeader>
-        <SheetClose className='flex justify-end mt-[4.5%]'>
-          <HiOutlineX size={42} className='rounded-full bg-white bg-opacity-[20%] text-white'/>
+        <SheetClose className='flex justify-end mt-[4.5%]' onClick={closeMenu}>
+          <HiOutlineX size={42} className='rounded-full bg-white bg-opacity-[20%] text-white' />
         </SheetClose>
-        {/* <SheetTitle></SheetTitle> */}
         <SheetDescription className='text-white'>
           <ul className='mt-4 grid grid-rows'>
             {navItems.map(({ path, label }) => (
-              <Link aria-label={`Navigate to ${label}`} key={path} href={path} className={`${pathname === path ? "text-3xl mb-4 justify-start grid grid-cols" : "text-3xl mb-4 justify-start grid grid-cols"}`}>
-                {/* <h1 className='text-3xl mb-4 justify-start grid grid-cols'> */}
-                  <span className='text-italic' aria-label={label}>{label}</span>
-                {/* </h1> */}
-              </Link>
+              <li key={path} className={`${pathname === path ? "text-3xl mb-4 justify-start grid grid-cols" : "text-3xl mb-4 justify-start grid grid-cols"}`}>
+                <button
+                  aria-label={`Navigate to ${label}`}
+                  className='text-italic'
+                  onClick={() => handleNavigation(path)}
+                >
+                  {label}
+                </button>
+              </li>
             ))}
           </ul>
         </SheetDescription>
@@ -69,6 +77,10 @@ export default function NavBar() {
   const onTab = useOnTablet(false);
   const router = useRouter();
   const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const openMenu = () => setIsMenuOpen(true);
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <nav className={`flex items-center justify-between w-full p-0 pl-5 mb-[10px] z-50 ${pathname === "/" ? "fixed top-[4%] w-[90%]" : "sticky top-[2%] w-full"}`}>
@@ -98,10 +110,12 @@ export default function NavBar() {
               <div className='justify-between bg-white bg-opacity-[4%] backdrop-blur flex items-center justify-center mr-3'>
                 <ul className='justify-between flex items-center justify-center p-2 mx-auto space-x-4'>
                   <li className='flex justify-center items-center text-white'>
-                    <SheetTrigger><HiOutlineMenu size={32} aria-label='Mobile menu' /></SheetTrigger>
+                    <SheetTrigger onClick={openMenu}>
+                      <HiOutlineMenu size={32} aria-label='Mobile menu' />
+                    </SheetTrigger>
                   </li>
                 </ul>
-                <MobileMenu navItems={navItems} pathname={pathname ? String(pathname) : ''} />
+                {isMenuOpen && <MobileMenu navItems={navItems} pathname={pathname ? String(pathname) : ''} closeMenu={closeMenu} />}
               </div>
             )}
           </>
