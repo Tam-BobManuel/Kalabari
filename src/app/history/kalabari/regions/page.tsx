@@ -2,10 +2,10 @@
 import React,{ useState,useEffect }  from 'react';
 import Ecran from '@/assets/Images/history-img/Ecran-Kalabari-Art.jpg';
 import Wharf from '@/assets/Images/history-img/Abonnema Wharf.jpeg';
-import DuoCard from '@/components/DuoCard';
+import DuoCard from '@/components/duoCard';
 import ReactHtmlParser from 'react-html-parser';
 import regionNames from '@/assets/data/regionNames.json';
-import Back from '@/components/Back';
+import Back from '@/components/back';
 
 interface Imager {
   id: string;
