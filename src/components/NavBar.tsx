@@ -11,9 +11,9 @@ const navItems = [
   { path: "/", label: "HOME" },
   { path: "/history", label: "HISTORY" },
   { path: "/photos", label: "PHOTOS" },
-  {path: "/names", label: 'NAMES'},
+  {path: "/names", label: 'NAMES'}
   // { path: "/login", label: "LOGIN" },
-  { path: "/about-us.php", label: "ABOUT US" }
+  // { path: "/about-us.php", label: "ABOUT US" }
 ];
 
 interface CommonLinkProps {
