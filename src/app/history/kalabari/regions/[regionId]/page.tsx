@@ -55,7 +55,7 @@ export default function RegionDetails({ params }: { params: { regionId: string }
   }
 
   return (
-    <main className='p-2'>
+    <main className='p-2 overflow-hidden box-border'>
       <Back />
       <h1 className='text-4xl text-center'>{regionId.charAt(0).toUpperCase() + regionId.slice(1)}</h1>
       <p>
