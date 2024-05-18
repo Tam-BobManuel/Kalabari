@@ -20,10 +20,12 @@ export const LayoutProvider = ({ children }: {children: React.ReactNode;}) => {
   }, []);
     const pathname = usePathname();
     return (
-        <div className="overflow-hidden box-border">
-            {pathname?.includes("/admin") ? null : <NavBar />}
+      <>
+        {pathname?.includes("/admin") ? null : <NavBar />}
+          <div className="overflow-hidden box-border">
             {children}
-            {pathname !== "/" && <Footer />}
-        </div>
+          </div>
+        {pathname !== "/" && <Footer />}
+      </>
     );
 };
