@@ -3,7 +3,7 @@
 import {useEffect } from 'react';
 import { usePathname } from "next/navigation";
 import NavBar from "./NavBar";
-import Footer from "@/components/Footer";
+import Footer from "@/components/footer";
 
 export const LayoutProvider = ({ children }: {children: React.ReactNode;}) => {
   useEffect(() => {
@@ -21,7 +21,7 @@ export const LayoutProvider = ({ children }: {children: React.ReactNode;}) => {
     const pathname = usePathname();
     return (
         <>
-            {pathname.includes("/admin") ? null : <NavBar />}
+            {pathname?.includes("/admin") ? null : <NavBar />}
             {children}
             {pathname !== "/" && <Footer />}
         </>
