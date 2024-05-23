@@ -89,7 +89,7 @@ export default function NavBar() {
           <Image src={logo} alt="website logo, click to go back" onClick={() => router.back()} />
         </div>
         {onLaptop ? (
-          <div className='justify-between bg-white bg-opacity-[4%] backdrop-blur w-[65%] flex items-center justify-center z-40 text-white'>
+          <div className='justify-between bg-[#0B0D17] bg-opacity-[15%] backdrop-blur w-[65%] flex items-center justify-center z-40 text-white'>
             <ul className='justify-between flex items-center justify-center px-5 mx-auto space-x-2 text-base'>
               {navItems.map(({ path, label }) => (
                 <CommonLink key={path} path={path} label={label} isActive={pathname === path} />
@@ -99,7 +99,7 @@ export default function NavBar() {
         ) : (
           <>
             {onTab ? (
-              <div className='justify-between bg-white bg-opacity-[4%] backdrop-blur w-[80%] flex items-center justify-center z-40 text-white'>
+              <div className='justify-between bg-[#0B0D17] bg-opacity-[4%] backdrop-blur w-[80%] flex items-center justify-center z-40 text-white'>
                 <ul className='justify-between flex items-left justify-start mx-auto space-x-2 text-base'>
                   {navItems.map(({ path, label }) => (
                     <CommonLink key={path} path={path} label={label} isActive={pathname === path} />

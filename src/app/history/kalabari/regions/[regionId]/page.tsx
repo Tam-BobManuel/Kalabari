@@ -1,53 +1,28 @@
-'use client'
+"use client"
 import regionNames from '@/assets/data/regionNames.json';
 import Back from '@/components/back';
 import { notFound } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import ReactHtmlParser from 'react-html-parser';
-
-interface Imager {
-  id: string;
-  data: {
-    name: string;
-    photo: string;
-    brief: string;
-    slug: string;
-    detail: string;
-  };
-}
+import regions from '@/assets/data/regions.json';
 
 export default function RegionDetails({ params }: { params: { regionId: string } }) {
-  const [images, setImages] = useState<Imager[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(`https://cdn.builder.io/api/v3/content/regions?apiKey=${process.env.NEXT_PUBLIC_BUILDER_IO_API}`)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
-        return response.json();
-      })
-      .then(data => {
-        setImages(data.results);
-        setLoading(false);
-      })
-      .catch(error => {
-        setError(error.message);
-        setLoading(false);
-      });
+    setLoading(false);
   }, []);
 
   const regionId = params.regionId;
-  const regionData = images.find((region) => region.data.slug === regionId);
+  const regionData = regions.find((region) => region.slug === regionId);
 
   if (loading) {
-    return <div>Loading...</div>; // You can have a loading indicator
+    return <div>Loading...</div>; 
   }
 
   if (error) {
-    return <div>Error: {error}</div>; // Display error message
+    return <div>Error: {error}</div>; 
   }
 
   if (!regionData) {
@@ -58,9 +33,11 @@ export default function RegionDetails({ params }: { params: { regionId: string }
     <main className='p-2'>
       <Back />
       <h1 className='text-4xl text-center'>{regionId.charAt(0).toUpperCase() + regionId.slice(1)}</h1>
-      <p>
-        <b>Detail:</b> {ReactHtmlParser(regionData.data.detail)}
-      </p>
+      {regionData.detail.map((item, index) => (
+        <p key={index}>
+          {ReactHtmlParser(item.text)}
+        </p>
+      ))}
     </main>
   );
 }
