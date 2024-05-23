@@ -1,8 +1,16 @@
 'use client'
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Suspense, CSSProperties } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Search from '@/components/search';
+import CircleLoader from "react-spinners/CircleLoader";
+import Footer from '@/components/footer';
+
+const override: CSSProperties = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "red",
+};
 
 interface Imager {
   id: string;
@@ -20,6 +28,15 @@ export default function Photos() {
   const [hasMore, setHasMore] = useState(true);
   const bottomBoundaryRef = useRef(null);
   const fetchedImageIds = useRef(new Set<string>());
+  const [isClient, setIsClient] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [color, setColor] = useState("#ffffff");
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsClient(true);
+    }, 3000); // 3-second delay
+  }, []);
 
   const fetchImages = async () => {
     const response = await fetch(`https://cdn.builder.io/api/v3/content/images?apiKey=${process.env.NEXT_PUBLIC_BUILDER_IO_API}&limit=8&offset=${offset}`);
@@ -73,13 +90,30 @@ export default function Photos() {
     }
   }, [images]);
 
+  if (!isClient) {
+    return ( // Add a return statement here
+      <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center border">
+        <CircleLoader
+          color={color}
+          loading={loading}
+          cssOverride={override}
+          size={150}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      </div>
+    );
+  }
+
   return (
-    <main className={'bg-darkk p-2'} aria-label="You're at the Photos Section">
+    <>
+      <main className={'bg-darkk p-2'} aria-label="You're at the Photos Section">
        <div className="sticky bg-transparent top-[12%] left-0 right-0 z-10">
         <Search images={images} setFilteredImages={setFilteredImages} />
       </div>
       <section className="photos-grid grid md:grid-cols-4 sm:grid-cols-2 xs:grid-cols-1 gap-4 w-full">
-        {filteredImages?.map((photo) => (
+        <Suspense fallback={<p>Loading feed...</p>}>
+          {filteredImages?.map((photo) => (
           <div key={photo.id} className="photo-item">
             <Link href={photo.data.image}>
               <div className='relative'>
@@ -95,6 +129,8 @@ export default function Photos() {
             </Link>
           </div>
         ))}
+        </Suspense>
+        
       </section>
       {hasMore ? (
         <div id="page-bottom-boundary" ref={bottomBoundaryRef}></div>
@@ -102,5 +138,7 @@ export default function Photos() {
         <p className="text-center">Looks like that's all we have</p>
       )}
     </main>
+    <Footer/>
+    </>
   );
 }

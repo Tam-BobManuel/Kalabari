@@ -1,17 +1,50 @@
-import Back from '@/components/back'
-import React from 'react'
+import React from 'react';
+import data from '@/assets/data/Origin.json';
+import parse from 'html-react-parser';
+import Back from '@/components/back';
 
-function kalabari() {
+function Kalabari() {
   return (
-    
-   <main className='p-2'>
-   <Back/>
-    <h1 className='text-4xl text-center'>KALABARI</h1>
-    <div>The Kalabari Kingdom, also called Elem Kalabari (Kalabari: New Shipping Port), is the independent traditional state of the Kalabari people, an Ijaw ethnic group, in the Niger River Delta.It is recognized as a traditional state in what is now Rivers State, Nigeria. The Kingdom was founded by the great Amachree I, forefather of the Amachree dynasty, which is now headed by the Princewill family. The Kingdom is ruled and controlled by King Amachree XI (Professor Theophilus Princewill CFR), along with his Council of Chiefs, most of whom are royal princes. Together, they make up the traditional Kalabari ruling house, similar to a monarchy. Kalabari is a tribe located in the Niger Delta region of Nigeria. They are primarily found in Rivers State and are known for their rich cultural heritage and traditions. The Kalabari people have a strong maritime culture and are skilled fishermen and traders. They are also known for their vibrant masquerade festivals and intricate traditional clothing.
-    Kalabari is also a language spoken by the Kalabari people, which belongs to the Ijo language family.</div>
-   </main>
-   
-  )
+    <main className='p-2 w-[95%] mx-[auto]'>
+      <Back/>
+      {/* HISTORY OF KALABARI  */}
+      <h1 className='text-4xl text-center'>{data.title}</h1>
+      {data.content.map((paragraph, index) => (
+        <div key={index} className='text-xl text-justify leading-10'>
+          {parse(paragraph.text)}
+          {paragraph.list && (
+            <ol className="list-decimal pl-8">
+              {paragraph.list.map((item, index) => (
+                <li key={index}>{item.item}</li>
+              ))}
+            </ol>
+          )}
+        </div>
+      ))}
+
+      {/* TOWNS OF KALABARI */}
+      <div className='text-3xl text-center'>{parse(data.presentKingdom.title)}</div>
+      {data.presentKingdom.townsAndVillages.map((town, index) => (
+        <div key={index} className='text-xl text-justify leading-10'>
+          {parse(town.text)}
+          {town.list && (
+            <ol className="list-decimal pl-8">
+              {town.list.map((item, index) => (
+                <li key={index}>{item.item}</li>
+              ))}
+            </ol>
+          )}
+        </div>
+      ))}
+      {/* OCCUPATION OF KALABARI */}
+      <div className='text-3xl text-center'>{parse(data.occupation.title)}</div>
+      {data.occupation.content.map((job, index) => (
+        <div key={index} className='text-xl text-justify leading-10'>
+          {parse(job.text)}
+        </div>
+      ))}
+    </main>
+  );
 }
 
-export default kalabari
+export default Kalabari;

@@ -69,7 +69,7 @@ const Footer = () => {
                       <DialogHeader>
                         <DialogTitle className="text-xl text-center">Send Email</DialogTitle>
                         <DialogDescription className="text-base text-white text-center">
-                          Send us a mail without leaving the app. Click save when you're done.
+                          Send us a mail without leaving the app. Click 'send message' when you're done.
                         </DialogDescription>
                       </DialogHeader>
                       <div className="grid gap-4 py-4">
