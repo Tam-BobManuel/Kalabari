@@ -36,7 +36,7 @@ export default function History() {
         heading='REGIONS'
         reverse={true}
       />
-      <DuoCard
+      {/* <DuoCard
         text={ReactHtmlParser(briefRegionTruncated)}
         imageUrl={Royal}
         mobileImageUrl={`/images/Kalabari_ceremonial_attire.jpg`}
@@ -44,7 +44,7 @@ export default function History() {
         linkText="Explore"
         heading='ROYALTIES'
         reverse={false}
-      />
+      /> */}
     </main>
   );
 }
