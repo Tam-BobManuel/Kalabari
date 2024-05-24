@@ -38,7 +38,7 @@ export const LayoutProvider = ({ children }: {children: React.ReactNode;}) => {
 
   if (!isClient) {
     return ( // Add a return statement here
-      <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center border">
+      <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
         <CircleLoader
           color={color}
           loading={loading}
