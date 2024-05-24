@@ -1,6 +1,6 @@
 "use client"
 import { useState, useEffect } from 'react';
-import FunFacts from '@/assets/data/regionNames.json';
+import FunFacts from '../../assets/data/funFacts.json';
 
 const Facts = () => {
   const [facts, setFacts] = useState<
@@ -20,14 +20,10 @@ const Facts = () => {
     if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
       if (hasMore) {
         setLoading(true);
-        setTimeout(() => {
-          const newFacts = FunFacts.slice(facts.length, facts.length + 10);
-          setFacts([...facts, ...newFacts]);
-          setLoading(false);
-          if (newFacts.length < 10) {
-            setHasMore(false);
-          }
-        }, 1000); // simulate delay
+        const newFacts = FunFacts.slice(facts.length, facts.length + 10);
+        setFacts([...facts, ...newFacts]);
+        setHasMore(newFacts.length < 10 ? false : true);
+        setLoading(false);
       }
     }
   };
@@ -40,12 +36,6 @@ const Facts = () => {
       {facts.map((fact, index) => (
         <div
           key={index}
-          // style={{
-          //   position: 'relative',
-          //   top: `${Math.random() * 100}%`,
-          //   left: `${Math.random() * 100}%`,
-          //   textAlign: 'center',
-          // }}
         >
           <h2 className="text-2xl">{fact.text}</h2>
           <p className="text-sm">{fact.category}</p>
