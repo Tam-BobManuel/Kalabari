@@ -32,7 +32,21 @@ export const metadata: Metadata = {
       default: APP_DEFAULT_TITILE,
       template: APP_TITLE_TEMPLATE
     },
-    description: APP_DESCRIPTION
+    description: APP_DESCRIPTION,
+    images: [
+      {
+        url: '/images/regions/AbonnemaWharf.jpeg', // path to your image file
+        width: 1200,
+        height: 630,
+        alt: 'Kalabari Culture OG Image',
+      },
+      {
+        url: '/images/Ecran-Kalabari-Art.jpg', // path to your image file
+        width: 1200,
+        height: 630,
+        alt: 'Kalabari Culture OG Image',
+      },
+    ],
   },
   twitter:{
     card: "summary",
