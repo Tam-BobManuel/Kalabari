@@ -7,7 +7,7 @@ import { LayoutProvider } from "../components/layoutProvider";
 const APP_NAME="Kalabari culture";
 const APP_DEFAULT_TITILE = "Kalabari";
 const APP_TITLE_TEMPLATE = "%s - APP";
-const APP_DESCRIPTION = "A culture brought to the digital relm"
+const APP_DESCRIPTION = "A culture brought to the digital realm"
 
 export const metadata: Metadata = {
   applicationName: APP_NAME,
