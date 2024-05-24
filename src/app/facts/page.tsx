@@ -1,6 +1,6 @@
 "use client"
 import { useState, useEffect } from 'react';
-import FunFacts from '@/assets/data/funfacts.json';
+import FunFacts from '../../assets/data/funFacts.json';
 
 const Facts = () => {
 
