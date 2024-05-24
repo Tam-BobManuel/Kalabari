@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import FunFacts from '@/assets/data/funFacts.json';
 
-const FunFactsPage = () => {
+const Facts = () => {
   const [facts, setFacts] = useState<
   {
     category: string;
@@ -74,4 +74,4 @@ const FunFactsPage = () => {
   );
 };
 
-export default FunFactsPage;
+export default Facts;
