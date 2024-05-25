@@ -5,6 +5,7 @@ import NavBar from "./NavBar";
 import Footer from "./footer";
 import CircleLoader from "react-spinners/CircleLoader";
 import FlareCursor from './FlareCursor';
+import { useOnPC, useOnTablet } from '@/hooks/useWindowResize';
 
 const override: CSSProperties = {
   display: "block",
@@ -29,15 +30,18 @@ export const LayoutProvider = ({ children }: {children: React.ReactNode;}) => {
   const [isClient, setIsClient] = useState(false);
   const [loading, setLoading] = useState(true);
   const [color, setColor] = useState("#ffffff");
+  
+  const onLaptop = useOnPC(false);
+  const onTab = useOnTablet(false);
 
   useEffect(() => {
     setTimeout(() => {
       setIsClient(true);
-    }, 3000); // 3-second delay
+    }, 5000); // 1-second delay
   }, []);
 
   if (!isClient) {
-    return ( // Add a return statement here
+    return ( 
       <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
         <CircleLoader
           color={color}
@@ -47,6 +51,9 @@ export const LayoutProvider = ({ children }: {children: React.ReactNode;}) => {
           aria-label="Loading Spinner"
           data-testid="loader"
         />
+        <audio autoPlay loop preload='auto'>
+          <source src="/audio/loading-sound.wav" type="audio/wav" />
+        </audio>
       </div>
     );
   }
@@ -55,8 +62,8 @@ export const LayoutProvider = ({ children }: {children: React.ReactNode;}) => {
   return (
     <>
       {pathname?.includes("/admin") ? null : <NavBar />}
-      <FlareCursor/>
-      {children}
+        {onLaptop? (<FlareCursor/>):(' ')}
+        {children}
       {!excludedPathnames.includes(pathname ?? '') && <Footer />}
     </>
   );

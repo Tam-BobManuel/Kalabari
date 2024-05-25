@@ -4,9 +4,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import logo from "../assets/logo.png";
-import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
+import { HiOutlineMenu, HiOutlineX, HiArrowRight } from "react-icons/hi";
 import { useOnPC, useOnTablet } from '@/hooks/useWindowResize';
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetClose, SheetTrigger } from "@/components/ui/sheet";
+import { motion } from 'framer-motion';
+import { Sheet, 
+  SheetContent, 
+  SheetDescription, 
+  SheetHeader, 
+  SheetClose, 
+  SheetTrigger
+} from "@/components/ui/sheet";
 
 const navItems = [
   { path: "/", label: "HOME" },
@@ -109,7 +116,18 @@ export default function NavBar() {
             ) : (
               <div className='justify-between bg-white bg-opacity-[4%] backdrop-blur flex items-center justify-center mr-3'>
                 <ul className='justify-between flex items-center justify-center p-2 mx-auto space-x-4'>
-                  <li className='flex justify-center items-center text-white'>
+                <li className='flex items-center'>
+                <motion.div
+                  initial={{ x: 0 }}
+                  animate={{ x: [-5, 5] }}
+                  transition={{ duration: 0.5, repeat: Infinity, ease: 'easeOut' }}
+                  className={`flex items-center ${pathname === "/" ? 'text-black' : 'text-white'}`}
+                >
+                    <span className='mr-2'>navigate</span>
+                    <HiArrowRight className='cursor-pointer after:absolute after:top-1/2 after:right-[-10px] after:translate-y-[-50%] after:border-t-transparent after:border-b-transparent after:border-l-black after:border-l-[10px]' />
+                  </motion.div>
+                </li>
+                  <li className='flex justify-center items-center text-white border bg-darkk'>
                     <SheetTrigger onClick={openMenu}>
                       <HiOutlineMenu size={32} aria-label='Mobile menu' />
                     </SheetTrigger>

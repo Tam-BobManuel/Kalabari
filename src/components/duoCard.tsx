@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { useOnPC } from '../hooks/useWindowResize';
 import imgPlaceholder from '../assets/Images/home-Img/Blurred-GI5YHyFXsAAHRGi.svg';
 import { usePathname } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 interface DuoCardProps {
   text: React.ReactNode;
@@ -18,6 +20,11 @@ interface DuoCardProps {
 const DuoCard: React.FC<DuoCardProps> = ({ text, imageUrl, mobileImageUrl, linkUrl, linkText, heading, reverse }) => {
   const pathname = usePathname();
   const onLaptop = useOnPC(false);
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    setAnimate(true);
+  }, []);
   if (mobileImageUrl==='' || mobileImageUrl=== null || mobileImageUrl===undefined) {
     mobileImageUrl = imgPlaceholder.src;
   }
@@ -30,7 +37,12 @@ const DuoCard: React.FC<DuoCardProps> = ({ text, imageUrl, mobileImageUrl, linkU
   
 
   return (
-    <div className={` justify-center flex items-center w-full contain border-box overflow-hidden ${onLaptop ? 'flex-row' : 'flex-col'}`}>
+    <motion.div
+      initial={{ x: reverse ? 100 : -100, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className={`justify-center flex items-center w-full contain border-box overflow-hidden ${onLaptop ? 'flex-row' : 'flex-col'}`}
+    >
       {onLaptop? (
         <>
           <div className={`${reverse ? 'flex-row-reverse' : ''} pt-0  px-2 flex mb-[20px] h-[3/4] overflow-none ${onLaptop ? 'flex-row' : 'flex-col'}`}>
@@ -68,7 +80,7 @@ const DuoCard: React.FC<DuoCardProps> = ({ text, imageUrl, mobileImageUrl, linkU
           </div>
         </>
       )}
-    </div>
+    </motion.div>
   );
 };
 
