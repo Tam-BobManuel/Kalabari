@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 // import { Inter } from "next/font/google";
 import "../../globals.css";
 import { LayoutProvider } from "../components/layoutProvider";
+import { Analytics } from "@vercel/analytics/react";
+
 
 // const inter = Inter({ subsets: ["latin"] });
 const APP_NAME="Kalabari culture";
@@ -74,6 +76,8 @@ export default function RootLayout({
       <body>  
         <LayoutProvider>
           {children}  
+          
+        <Analytics />
         </LayoutProvider>
       </body>
     </html>
