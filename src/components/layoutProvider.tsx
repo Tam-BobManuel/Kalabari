@@ -37,7 +37,7 @@ export const LayoutProvider = ({ children }: {children: React.ReactNode;}) => {
   useEffect(() => {
     setTimeout(() => {
       setIsClient(true);
-    }, 5000); // 1-second delay
+    }); // 1-second delay
   }, []);
 
   if (!isClient) {
