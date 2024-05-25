@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import "../../globals.css";
 import { LayoutProvider } from "../components/layoutProvider";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 
 // const inter = Inter({ subsets: ["latin"] });
@@ -76,8 +77,8 @@ export default function RootLayout({
       <body>  
         <LayoutProvider>
           {children}  
-          
-        <Analytics />
+          <Analytics />
+          <SpeedInsights/>
         </LayoutProvider>
       </body>
     </html>
