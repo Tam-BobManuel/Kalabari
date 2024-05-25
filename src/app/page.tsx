@@ -1,7 +1,8 @@
 "use client"
 import Link from "next/link";
 import "../../globals.css";
-import {useOnPC} from '../hooks/useWindowResize'
+import {useOnPC} from '../hooks/useWindowResize';
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   // truthy means you're on Laptop, falsy means you're on mobile
@@ -21,9 +22,10 @@ export default function Home() {
       </div>
 
       <div className="fixed bottom-0 left-0 ml-4 mb-4 text-sm text-gray-500">
-        <Link href="/facts">
+        
+        <Button className="p-2 pt-4 center text-center item-center"><Link href="/facts">
           <span className="text-white text-3xl text-shadow">Fun Facts</span>
-        </Link>
+        </Link></Button>
       </div>
 
     </main>
