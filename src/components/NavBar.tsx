@@ -120,7 +120,7 @@ export default function NavBar() {
                 <motion.div
                   initial={{ x: 0 }}
                   animate={{ x: [-5, 5] }}
-                  transition={{ duration: 0.5, repeat: Infinity, ease: 'easeOut' }}
+                  transition={{ duration: 1, repeat: Infinity, ease: 'easeOut' }}
                   className={`flex items-center ${pathname === "/" ? 'text-black' : 'text-white'}`}
                 >
                     <span className='mr-2'>navigate</span>
