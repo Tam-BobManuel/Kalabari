@@ -2,6 +2,10 @@ user-agent: *
 
 Allow: /
 
+Allow: /history
+
+Allow: /history/regions/Abonnema
+
 Disallow: /admin*
 
 Disallow: /profile*
