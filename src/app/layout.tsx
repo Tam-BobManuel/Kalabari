@@ -63,56 +63,8 @@ export const metadata: Metadata = {
     ],
   },
   other: {
-    linkedin: {
-      type: "website",
-      siteName: APP_NAME,
-      card: "summary",
-      title: {
-        default: APP_DEFAULT_TITILE,
-        template: APP_TITLE_TEMPLATE
-      },
-      description: APP_DESCRIPTION,
-      images: [
-        {
-          url: '/images/GI5YHyFXsAAHRGi.jpeg', // path to your image file
-          width: 720,
-          height: 542,
-          alt: 'Kalabari Culture OG Image',
-        }
-      ],
-    },
-    facebook: {
-      card:"summary",
-      title: {
-        default: APP_DEFAULT_TITILE,
-        template: APP_TITLE_TEMPLATE
-      },
-      description: APP_DESCRIPTION,
-      images: [
-        {
-          url: '/images/GI5YHyFXsAAHRGi.jpeg', // path to your image file
-          width: 720,
-          height: 542,
-          alt: 'Kalabari Culture OG Image',
-        }
-      ],
-    },
-    discord: {
-      card:"summary",
-      title: {
-        default: APP_DEFAULT_TITILE,
-        template: APP_TITLE_TEMPLATE
-      },
-      description: APP_DESCRIPTION,
-      images: [
-        {
-          url: '/images/GI5YHyFXsAAHRGi.jpeg', // path to your image file
-          width: 720,
-          height: 542,
-          alt: 'Kalabari Culture OG Image',
-        }
-      ],
-    }
+    pinterest: "abeg na work!",
+    
   }
 };
 
@@ -128,6 +80,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <meta name="google-adsense-account" content="ca-pub-5399131316005652"></meta>
+      <title>Kalabari</title>
+      <meta name="description" content="A culture brought to the digital realm"></meta>
+
+      <meta property="og:url" content="https://www.kalabari.vercel.app"></meta>
+      <meta property="og:type" content="website"></meta>
+      <meta property="og:title" content="Kalabari"></meta>
+      <meta property="og:description" content="A culture brought to the digital realm"></meta>
+
+      <meta property="og:image" content="/images/GI5YHyFXsAAHRGi.jpeg"></meta>
+      
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image"></meta>
+      <meta property="twitter:domain" content="kalabari.vercel.app"></meta>
+      <meta property="twitter:url" content="https://www.kalabari.vercel.app"></meta>
+      <meta name="twitter:title" content="Kalabari"></meta>
+      <meta name="twitter:description" content="A culture brought to the digital realm"></meta>
+      <meta name="twitter:image" content="/images/GI5YHyFXsAAHRGi.jpeg">
+      </meta>
       <body>  
         <LayoutProvider>
           {children}  
