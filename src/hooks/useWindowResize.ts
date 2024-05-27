@@ -1,3 +1,4 @@
+"use client"
 import { useState, useEffect } from 'react';
 
 // Custom Hook to detect PC screen size

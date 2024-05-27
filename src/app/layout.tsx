@@ -4,6 +4,7 @@ import "../../globals.css";
 import { LayoutProvider } from "../components/layoutProvider";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Head from 'next/head';
 
 
 // const inter = Inter({ subsets: ["latin"] });
@@ -80,25 +81,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <meta name="google-adsense-account" content="ca-pub-5399131316005652"></meta>
-      <title>Kalabari</title>
-      <meta name="description" content="A culture brought to the digital realm"></meta>
+      <Head>
+        <meta name="google-adsense-account" content="ca-pub-5399131316005652"></meta>
+        <title>Kalabari</title>
+        <meta name="description" content="A culture brought to the digital realm"></meta>
 
-      <meta property="og:url" content="https://www.kalabari.vercel.app"></meta>
-      <meta property="og:type" content="website"></meta>
-      <meta property="og:title" content="Kalabari"></meta>
-      <meta property="og:description" content="A culture brought to the digital realm"></meta>
+        {/* Open Graph: Facebook, LinkedIn, and Pinterest */}
+        <meta property="og:url" content="https://www.kalabari.vercel.app"></meta>
+        <meta property="og:type" content="website"></meta>
+        <meta property="og:title" content="Kalabari"></meta>
+        <meta property="og:description" content="A culture brought to the digital realm"></meta>
+        <meta property="og:image" content="https://cdn.builder.io/api/v1/image/assets%2Fe645feaee1ad45acb7350181d47f95e0%2Fa828943776664c0cb86d08fa44138134"></meta>
 
-      <meta property="og:image" content="https://cdn.builder.io/api/v1/image/assets%2Fe645feaee1ad45acb7350181d47f95e0%2Fa828943776664c0cb86d08fa44138134"></meta>
-
-      {/* Twitter */}
-      <meta name="twitter:card" content="summary_large_image"></meta>
-      <meta property="twitter:domain" content="kalabari.vercel.app"></meta>
-      <meta property="twitter:url" content="https://www.kalabari.vercel.app"></meta>
-      <meta name="twitter:title" content="Kalabari"></meta>
-      <meta name="twitter:description" content="A culture brought to the digital realm"></meta>
-      <meta name="twitter:image" content="https://cdn.builder.io/api/v1/image/assets%2Fe645feaee1ad45acb7350181d47f95e0%2Fa828943776664c0cb86d08fa44138134">
-      </meta>
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image"></meta>
+        <meta property="twitter:domain" content="kalabari.vercel.app"></meta>
+        <meta property="twitter:url" content="https://www.kalabari.vercel.app"></meta>
+        <meta name="twitter:title" content="Kalabari"></meta>
+        <meta name="twitter:description" content="A culture brought to the digital realm"></meta>
+        <meta name="twitter:image" content="https://cdn.builder.io/api/v1/image/assets%2Fe645feaee1ad45acb7350181d47f95e0%2Fa828943776664c0cb86d08fa44138134">
+        </meta>
+      </Head>
       <body>  
         <LayoutProvider>
           {children}  
