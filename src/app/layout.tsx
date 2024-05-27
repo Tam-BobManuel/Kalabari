@@ -89,15 +89,15 @@ export default function RootLayout({
       <meta property="og:title" content="Kalabari"></meta>
       <meta property="og:description" content="A culture brought to the digital realm"></meta>
 
-      <meta property="og:image" content="/images/GI5YHyFXsAAHRGi.jpeg"></meta>
-      
+      <meta property="og:image" content="https://cdn.builder.io/api/v1/image/assets%2Fe645feaee1ad45acb7350181d47f95e0%2Fa828943776664c0cb86d08fa44138134"></meta>
+
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image"></meta>
       <meta property="twitter:domain" content="kalabari.vercel.app"></meta>
       <meta property="twitter:url" content="https://www.kalabari.vercel.app"></meta>
       <meta name="twitter:title" content="Kalabari"></meta>
       <meta name="twitter:description" content="A culture brought to the digital realm"></meta>
-      <meta name="twitter:image" content="/images/GI5YHyFXsAAHRGi.jpeg">
+      <meta name="twitter:image" content="https://cdn.builder.io/api/v1/image/assets%2Fe645feaee1ad45acb7350181d47f95e0%2Fa828943776664c0cb86d08fa44138134">
       </meta>
       <body>  
         <LayoutProvider>
