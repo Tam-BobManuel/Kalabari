@@ -6,7 +6,7 @@ import mybgImg from '../assets/Images/home-Img/Blurred-GI5YHyFXsAAHRGi.svg';
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-darkk text-white">
+    <main className="min-h-screen max-h-screen h-screen overflow-hidden flex items-center justify-center bg-darkk text-white">
   <Image
     src={mybgImg}
     alt="Background Image"
