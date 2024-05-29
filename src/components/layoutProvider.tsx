@@ -10,7 +10,7 @@ import { useOnPC, useOnTablet } from '@/hooks/useWindowResize';
 const override: CSSProperties = {
   display: "block",
   margin: "0 auto",
-  borderColor: "red",
+  // borderColor: "red",
 };
 
 export const LayoutProvider = ({ children }: {children: React.ReactNode;}) => {

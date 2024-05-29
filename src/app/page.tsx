@@ -14,7 +14,7 @@ export default function Home() {
     priority
   />
   <div className="min-h-screen w-full flex items-center justify-center z-10">
-    <h1 className="text-center text-white text-7xl sm:text-8xl md:text-9xl alt-font text-shadow">WELCOME TO<br/>KALABARI</h1>
+    <h1 className="text-center text-white text-7xl sm:text-8xl md:text-9xl alt-font text-shadow">Kalabari se <br/> alua ke obem</h1>
   </div>
 
   <div className="fixed bottom-0 left-0 ml-4 mb-4 text-sm text-gray-500 z-10">
