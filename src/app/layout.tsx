@@ -61,6 +61,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
+        <meta name="google-site-verification" content="KMkWS2UsCPd9Snyuuhq3hzwUXeDiE1NSau-mN_UcVMA" />
         <meta name="google-adsense-account" content="ca-pub-5399131316005652"></meta>
         <title>Kalabari</title>
         <meta name="description" content="A culture brought to the digital realm"></meta>
