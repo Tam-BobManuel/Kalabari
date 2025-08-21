@@ -5,7 +5,6 @@ import { useState } from 'react';
 import ijawNames from 'ijaw-names';
 import { Button } from '@/components/ui/button';
 import { Input } from "@/components/ui/input"
-import { useOnPC, useOnTablet } from '@/hooks/useWindowResize';
 
 export default function Page() {
   const [nameInput, setNameInput] = useState('');
@@ -14,8 +13,6 @@ export default function Page() {
   const [error, setError] = useState('');
   const [generatedName, setGeneratedName] = useState('');
   const [displayOption, setDisplayOption] = useState('random');
-  const onLaptop = useOnPC(false);
-  const onTab = useOnTablet(false);
 
   const handleNameInputChange = (event: { target: { value: string; }; }) => {
     setNameInput(event.target.value);
@@ -69,10 +66,9 @@ export default function Page() {
           <h2 
             onClick={() => handleOptionClick('random')} 
             onKeyDown={(e) => handleOptionKeyPress(e, 'random')} 
-            // tabIndex={0}
-            className={onLaptop
-              ? (displayOption === 'random' ? "filter-none border-b sm:bg-[#D9D9D9] sm:text-[#261818] cursor-pointer p-1 rounded inline sm:text-center" : "sm:text-center cursor-pointer p-1 rounded inline")
-              : (displayOption === 'random' ? "filter-none bg-[#D9D9D9] text-[#261818] cursor-pointer p-1 rounded inline sm:text-center" : "sm:text-center cursor-pointer p-1 rounded inline")
+            className={displayOption === 'random' 
+              ? "filter-none lg:border-b lg:bg-transparent lg:text-white bg-[#D9D9D9] text-[#261818] cursor-pointer p-1 rounded inline sm:text-center" 
+              : "sm:text-center cursor-pointer p-1 rounded inline lg:text-white"
             }
           >
             RANDOM
@@ -80,10 +76,9 @@ export default function Page() {
           <h2 
             onClick={() => handleOptionClick('meaning')} 
             onKeyDown={(e) => handleOptionKeyPress(e, 'meaning')} 
-            // tabIndex={0}
-            className={onLaptop
-              ? (displayOption === 'meaning' ? "border-b sm:bg-[#D9D9D9] sm:text-[#261818] cursor-pointer p-1 rounded inline sm:text-center" : "sm:text-center cursor-pointer p-1 rounded inline")
-              : (displayOption === 'meaning' ? "bg-[#D9D9D9] text-[#261818] cursor-pointer p-1 rounded inline sm:text-center" : "sm:text-center cursor-pointer p-1 rounded inline")
+            className={displayOption === 'meaning' 
+              ? "lg:border-b lg:bg-transparent lg:text-white bg-[#D9D9D9] text-[#261818] cursor-pointer p-1 rounded inline sm:text-center" 
+              : "sm:text-center cursor-pointer p-1 rounded inline lg:text-white"
             }
           >
             MEANING
@@ -103,7 +98,7 @@ export default function Page() {
                 <p className='inline'>MEANING : </p>
                 <p className='inline'>{meaning}</p>
               </div>
-              <Button onClick={handleGenerateName} className={onLaptop? 'text-white text-xl w-full font-medium mt-5' : 'text-white text-base w-full font-regular mt-5'}>
+              <Button onClick={handleGenerateName} className='text-white lg:text-xl text-base w-full font-medium mt-5'>
                 GENERATE RANDOM NAME
               </Button>
             </>
@@ -122,7 +117,7 @@ export default function Page() {
               <div className='text-black text-xl font-medium mt-5 mb-5'>
               {secondMeaning ? (
                   <p className='inline'>MEANING : </p>
-               ) : ''}
+              ) : ''}
                   <p className='inline'>{secondMeaning}</p>
                 <p className='italic inline text-[#8B0505]'>{error}</p>
               </div>
