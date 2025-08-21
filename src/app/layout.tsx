@@ -1,13 +1,10 @@
 import type { Metadata, Viewport } from "next";
-// import { Inter } from "next/font/google";
 import "../../globals.css";
 import { LayoutProvider } from "../components/layoutProvider";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Head from 'next/head';
 
-
-// const inter = Inter({ subsets: ["latin"] });
 const APP_NAME="Kalabari culture";
 const APP_DEFAULT_TITILE = "Kalabari";
 const APP_TITLE_TEMPLATE = "%s - APP";

@@ -1,47 +1,42 @@
-"use client"
-import {CSSProperties, useEffect, useState } from 'react';
+"use client";
+import { CSSProperties, useEffect, useState } from 'react';
 import { usePathname } from "next/navigation";
 import NavBar from "./NavBar";
 import Footer from "./footer";
 import CircleLoader from "react-spinners/CircleLoader";
 import FlareCursor from './FlareCursor';
-import { useOnPC, useOnTablet } from '@/hooks/useWindowResize';
 
 const override: CSSProperties = {
   display: "block",
   margin: "0 auto",
-  // borderColor: "red",
 };
 
-export const LayoutProvider = ({ children }: {children: React.ReactNode;}) => {
-  useEffect(() => {
-    document.addEventListener('copy', (e) => {
-      e.preventDefault();
-    });
-    document.addEventListener('dragstart', (e) => {
-      e.preventDefault();
-    });
-    document.addEventListener('contextmenu', (e) => {
-      e.preventDefault();
-    });
-    console.log("%c/------------------------/\n\n%cWE ARE SEEKING VOLUNTEERS%c\n\n/------------------------/%c", 'font-size: 18px; font-weight: bold; color: #34C759;', 'font-size: 18px; font-weight: bold; color: #34C759;', 'font-size: 18px; font-weight: bold; color: #34C759;', 'color: #000;');
-  }, []);
+export const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
-  const [isClient, setIsClient] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [color, setColor] = useState("#ffffff");
-  
-  const onLaptop = useOnPC(false);
-  const onTab = useOnTablet(false);
+  const [color] = useState("#ffffff");
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsClient(true);
-    }); // 1-second delay
+    const handlePreventDefault = (e: Event) => e.preventDefault();
+    document.addEventListener('copy', handlePreventDefault);
+    document.addEventListener('dragstart', handlePreventDefault);
+    document.addEventListener('contextmenu', handlePreventDefault);
+    console.log("%c/------------------------/\n\n%cWE ARE SEEKING VOLUNTEERS%c\n\n/------------------------/%c", 'font-size: 18px; font-weight: bold; color: #34C759;', 'font-size: 18px; font-weight: bold; color: #34C759;', 'font-size: 18px; font-weight: bold; color: #34C759;', 'color: #000;');
+
+    return () => {
+      document.removeEventListener('copy', handlePreventDefault);
+      document.removeEventListener('dragstart', handlePreventDefault);
+      document.removeEventListener('contextmenu', handlePreventDefault);
+    };
   }, []);
 
-  if (!isClient) {
-    return ( 
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return (
       <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center">
         <CircleLoader
           color={color}
@@ -51,9 +46,6 @@ export const LayoutProvider = ({ children }: {children: React.ReactNode;}) => {
           aria-label="Loading Spinner"
           data-testid="loader"
         />
-        <audio autoPlay loop preload='auto'>
-          <source src="/audio/loading-sound.wav" type="audio/wav" />
-        </audio>
       </div>
     );
   }
@@ -62,8 +54,8 @@ export const LayoutProvider = ({ children }: {children: React.ReactNode;}) => {
   return (
     <>
       {pathname?.includes("/admin") ? null : <NavBar />}
-        {onLaptop? (<FlareCursor/>):(' ')}
-        {children}
+      <FlareCursor />
+      {children}
       {!excludedPathnames.includes(pathname ?? '') && <Footer />}
     </>
   );

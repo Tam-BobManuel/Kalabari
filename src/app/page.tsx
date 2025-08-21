@@ -18,9 +18,11 @@ export default function Home() {
   </div>
 
   <div className="fixed bottom-0 left-0 ml-4 mb-4 text-sm text-gray-500 z-10">
-    <Button className="p-2 pt-4 center text-center item-center border  text-white"><Link href="/facts">
-      <span className="text-white text-3xl text-shadow">Fun Facts</span>
-    </Link></Button>
+    <Button className="p-2 pt-4 center text-center item-center border  text-white">
+      <Link href="/facts">
+        <span className="text-white text-3xl text-shadow">Fun Facts</span>
+      </Link>
+    </Button>
   </div>
 </main>
   );

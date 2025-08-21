@@ -1,6 +1,5 @@
 'use client'
 import { useState, useEffect } from 'react';
-import { useOnPC } from '@/hooks/useWindowResize';
 import { HiOutlineSearch } from "react-icons/hi";
 
 interface Imager {
@@ -14,7 +13,6 @@ interface Imager {
 
 export default function Search({ images, setFilteredImages }: { images: Imager[]; setFilteredImages: React.Dispatch<React.SetStateAction<Imager[]>> }) {
   const [searchTerm, setSearchTerm] = useState('');
-  const onLaptop = useOnPC(false);
 
   useEffect(() => {
     const filtered = images.filter(image =>
@@ -28,34 +26,17 @@ export default function Search({ images, setFilteredImages }: { images: Imager[]
   };
 
   return (
-    <>
-      {onLaptop ? (
-        <div className={'flex items-center gap-2 bg-[#434343] w-[40%] p-2 mt-6 mb-3'}>
-          <span className="inline-block text-[#FFFFFF] border-r-[1px] border-[#000000] pr-2">
-            <HiOutlineSearch size={22} className="text-[#FFFFFF]" />
-          </span>
-          <input
-            type="search"
-            placeholder="Search..."
-            className="w-full bg-[#434343] text-[#FFFFFF] focus:outline-none"
-            value={searchTerm}
-            onChange={handleInputChange}
-          />
-        </div>
-      ) : (
-        <div className={'flex items-center gap-2 bg-[#434343] w-[60%] p-2 mt-6 mb-3'}>
-          <span className="inline-block text-[#FFFFFF] border-r-[1px] border-[#000000] pr-2">
-            <HiOutlineSearch size={22} className="text-[#FFFFFF]" />
-          </span>
-          <input
-            type="search"
-            placeholder="Search..."
-            className="w-full bg-[#434343] text-[#FFFFFF] focus:outline-none"
-            value={searchTerm}
-            onChange={handleInputChange}
-          />
-        </div>
-      )}
-    </>
+    <div className={'flex items-center gap-2 bg-[#434343] w-full lg:w-[40%] p-2 mt-6 mb-3'}>
+      <span className="inline-block text-[#FFFFFF] border-r-[1px] border-[#000000] pr-2">
+        <HiOutlineSearch size={22} className="text-[#FFFFFF]" />
+      </span>
+      <input
+        type="search"
+        placeholder="Search..."
+        className="w-full bg-[#434343] text-[#FFFFFF] focus:outline-none"
+        value={searchTerm}
+        onChange={handleInputChange}
+      />
+    </div>
   );
 }
