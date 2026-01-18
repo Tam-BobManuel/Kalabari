@@ -3,7 +3,7 @@ import "../../globals.css";
 import { LayoutProvider } from "../components/layoutProvider";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import Head from 'next/head';
+import Script from "next/script";
 
 const APP_NAME="Kalabari culture";
 const APP_DEFAULT_TITILE = "Kalabari";
@@ -42,7 +42,24 @@ export const metadata: Metadata = {
         alt: 'Kalabari Culture OG Image',
       }
     ],
-  }
+  },
+  // Move meta tags that can be in metadata to here
+  verification: {
+    google: 'KMkWS2UsCPd9Snyuuhq3hzwUXeDiE1NSau-mN_UcVMA',
+  },
+  other: {
+    'google-adsense-account': 'ca-pub-5399131316005652',
+  },
+  openGraph: {
+    url: "https://www.kalabari.vercel.app",
+    // ... rest of your openGraph properties
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kalabari",
+    description: "A culture brought to the digital realm",
+    images: ["https://cdn.builder.io/api/v1/image/assets%2Fe645feaee1ad45acb7350181d47f95e0%2Fa828943776664c0cb86d08fa44138134"],
+  },
 };
 
 
@@ -57,34 +74,28 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <meta name="google-site-verification" content="KMkWS2UsCPd9Snyuuhq3hzwUXeDiE1NSau-mN_UcVMA" />
-        <meta name="google-adsense-account" content="ca-pub-5399131316005652"></meta>
-        <title>Kalabari</title>
-        <meta name="description" content="A culture brought to the digital realm"></meta>
-
-        {/* Open Graph: Facebook, LinkedIn, and Pinterest */}
-        <meta property="og:url" content="https://www.kalabari.vercel.app"></meta>
-        <meta property="og:type" content="website"></meta>
-        <meta property="og:title" content="Kalabari"></meta>
-        <meta property="og:description" content="A culture brought to the digital realm"></meta>
-        <meta property="og:image" content="https://cdn.builder.io/api/v1/image/assets%2Fe645feaee1ad45acb7350181d47f95e0%2Fa828943776664c0cb86d08fa44138134"></meta>
-
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image"></meta>
-        <meta property="twitter:domain" content="kalabari.vercel.app"></meta>
-        <meta property="twitter:url" content="https://www.kalabari.vercel.app"></meta>
-        <meta name="twitter:title" content="Kalabari"></meta>
-        <meta name="twitter:description" content="A culture brought to the digital realm"></meta>
-        <meta name="twitter:image" content="https://cdn.builder.io/api/v1/image/assets%2Fe645feaee1ad45acb7350181d47f95e0%2Fa828943776664c0cb86d08fa44138134">
-        </meta>
-      </Head>
       <body>  
         <LayoutProvider>
           {children}  
           <Analytics />
           <SpeedInsights/>
         </LayoutProvider>
+        
+        {/* Replace inline script with Next.js Script component */}
+        <Script
+          id="bmc-widget"
+          strategy="lazyOnload"
+          data-name="BMC-Widget"
+          data-cfasync="false"
+          src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+          data-id="TamManuel"
+          data-description="Support me on Buy me a coffee!"
+          data-message="Thank you for your support!"
+          data-color="#5F7FFF"
+          data-position="Right"
+          data-x_margin="18"
+          data-y_margin="18"
+        />
       </body>
     </html>
   );
