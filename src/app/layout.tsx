@@ -81,7 +81,7 @@ export default function RootLayout({
       </Head>
       <body>  
         <LayoutProvider>
-          {children}  
+          {children}
           <Analytics />
           <SpeedInsights/>
         </LayoutProvider>

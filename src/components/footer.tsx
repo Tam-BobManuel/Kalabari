@@ -21,6 +21,7 @@ const Footer = () => {
   return (
     <div>
       <div className="bg-[#3c3d45] mt-2">
+      <a href="https://www.buymeacoffee.com/TamManuel"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=TamManuel&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" /></a>
         
       <div className="text-center center item-center">
         <Link href={'/about-us.php'}>About us</Link>
