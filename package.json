@@ -41,7 +41,7 @@
     "react-is-visible": "^1.2.0",
     "react-organizational-chart": "^2.2.1",
     "react-spinners": "^0.13.8",
-    "sharp": "^0.33.3",
+    "sharp": "^0.35.0",
     "styled-components": "^6.1.11",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
