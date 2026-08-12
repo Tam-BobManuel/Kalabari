@@ -85,7 +85,7 @@ export default function RootLayout({
           <Analytics />
           <SpeedInsights/>
         </LayoutProvider>
-        <Script
+        {/* <Script
           id="bmc-widget"
           strategy="lazyOnload"
           data-name="BMC-Widget"
@@ -98,7 +98,7 @@ export default function RootLayout({
           data-position="Right"
           data-x_margin="18"
           data-y_margin="18"
-        />
+        /> */}
       </body>
     </html>
   );

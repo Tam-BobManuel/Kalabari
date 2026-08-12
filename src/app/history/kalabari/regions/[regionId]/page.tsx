@@ -1,12 +1,13 @@
 "use client"
 import regionNames from '@/assets/data/regionNames.json';
 import Back from '@/components/back';
-import { notFound } from 'next/navigation';
+import { notFound, useParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import regions from '@/assets/data/regions.json';
 
-export default function RegionDetails({ params }: { params: { regionId: string } }) {
+export default function RegionDetails() {
+  const params = useParams<{ regionId: string }>();
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -14,7 +15,7 @@ export default function RegionDetails({ params }: { params: { regionId: string }
     setLoading(false);
   }, []);
 
-  const regionId = params.regionId;
+  const regionId = params?.regionId ?? "";
   const regionData = regions.find((region) => region.slug === regionId);
 
   if (loading) {

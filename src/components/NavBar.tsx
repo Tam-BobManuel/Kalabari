@@ -12,7 +12,8 @@ const navItems = [
   { path: "/", label: "HOME" },
   { path: "/history", label: "HISTORY" },
   { path: "/photos", label: "PHOTOS" },
-  { path: "/names", label: 'NAMES' }
+  { path: "/names", label: 'NAMES' },
+  { path: "/donate", label: 'DONATE'}
 ] as const;
 
 interface CommonLinkProps {

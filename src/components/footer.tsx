@@ -21,10 +21,14 @@ const Footer = () => {
   return (
     <div>
       <div className="bg-[#3c3d45] mt-2">
-      <a href="https://www.buymeacoffee.com/TamManuel"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=TamManuel&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" /></a>
-        
+      {/* <a href="https://www.buymeacoffee.com/TamManuel"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=☕&slug=TamManuel&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" /></a> */}
+
+      <div className="text-center center item-center pt-4">
+        <Link href={'/donate'}>Donate</Link>
+      </div>
+
       <div className="text-center center item-center">
-        <Link href={'/about-us.php'}>About us</Link>
+        <Link href={'/about-us'}>About us</Link>
       </div>
         <div className="text-white w-11/12 my-0 mx-auto flex flex-col-reverse gap-y-3.5 md:flex-row lg:flex-row items-center justify-between pt-5 pb-2">
           <div className="flex flex-col text-center gap-y-1.5 md:text-right lg:text-right w-fit">
