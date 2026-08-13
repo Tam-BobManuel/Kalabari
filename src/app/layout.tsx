@@ -80,6 +80,12 @@ export default function RootLayout({
         </meta>
       </Head>
       <body>  
+        <Script
+          id="adsense-init"
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5399131316005652"
+        />
         <LayoutProvider>
           {children}
           <Analytics />
