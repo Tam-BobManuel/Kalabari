@@ -1,35 +1,17 @@
-import { MetadataRoute } from 'next'
- 
+import type { MetadataRoute } from "next";
+
+const SITE_URL = "https://kalabari.vercel.app";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
+    { url: `${SITE_URL}/`, changeFrequency: "yearly", priority: 1 },
+    { url: `${SITE_URL}/photos`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${SITE_URL}/names`, changeFrequency: "monthly", priority: 0.8 },
     {
-      url: 'https://kalabari.vercel.app',
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 1,
-    },
-    {
-      url: 'https://kalabari.vercel.app/photos',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    }, {
-        url: 'https://kalabari.vercel.app/names',
-        lastModified: new Date(),
-        changeFrequency: 'monthly',
-        priority: 0.8,
-      },
-    {
-      url: 'https://kalabari.vercel.app/history/kalabari/regions',
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
+      url: `${SITE_URL}/history/kalabari/regions`,
+      changeFrequency: "weekly",
       priority: 0.8,
     },
-    {
-        url: 'https://kalabari.vercel.app/history/',
-        lastModified: new Date(),
-        changeFrequency: 'daily',
-        priority: 0.5,
-      }
-  ]
+    { url: `${SITE_URL}/history/`, changeFrequency: "daily", priority: 0.5 },
+  ];
 }

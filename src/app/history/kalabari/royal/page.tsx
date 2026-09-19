@@ -1,13 +1,10 @@
-import Back from '@/components/back'
-import React from 'react'
+import type { Metadata } from "next";
+import RoyalComingSoon from "@/features/history/components/RoyalComingSoon";
 
-function Royal() {
-  return (
-    <main className='p-2'>
-      <Back/>
-      <div>coming soon...</div>
-    </main>
-  )
+export const metadata: Metadata = {
+  title: "Royal History - Kalabari",
+};
+
+export default function RoyalPage() {
+  return <RoyalComingSoon />;
 }
-
-export default Royal
