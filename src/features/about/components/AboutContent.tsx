@@ -19,13 +19,12 @@ const text = `
 
 export default function AboutContent() {
   return (
-    <main
-      role="article"
+    <article
       aria-label="Personal story about creating a website to showcase Kalabari culture"
       className="mt-5 p-4"
     >
       <Back />
       {HTMLParser(text)}
-    </main>
+    </article>
   );
 }

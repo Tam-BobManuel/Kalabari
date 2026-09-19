@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { Button } from "@/features/shared/ui/button";
 import mybgImg from "@/assets/Images/home-Img/Blurred-GI5YHyFXsAAHRGi.svg";
+import { Button } from "@/features/shared/ui/button";
+import Link from "next/link";
 import RotatingText from "./RotatingText";
 
 export default function HomeHero() {
@@ -8,7 +8,7 @@ export default function HomeHero() {
     <main className="min-h-screen max-h-screen h-screen overflow-hidden flex items-center justify-center bg-darkk text-white">
       <img
         src={mybgImg.src}
-        alt="Background Image"
+        alt="Kalabari cultural background"
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
       />
       <div className="min-h-screen w-full flex items-center justify-center z-10">

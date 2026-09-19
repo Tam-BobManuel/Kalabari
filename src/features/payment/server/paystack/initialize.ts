@@ -4,7 +4,7 @@ export async function initializeTransaction(request: Request) {
   if (!email || !amount || amount <= 0) {
     return Response.json(
       { error: "A valid email and amount are required" },
-      { status: 400 }
+      { status: 400 },
     );
   }
 
@@ -12,7 +12,7 @@ export async function initializeTransaction(request: Request) {
   if (!secretKey) {
     return Response.json(
       { error: "Paystack secret key is not configured" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 
@@ -37,7 +37,7 @@ export async function initializeTransaction(request: Request) {
           callback_url: callbackUrl,
           currency: "NGN",
         }),
-      }
+      },
     );
 
     const data = await response.json();
@@ -45,7 +45,7 @@ export async function initializeTransaction(request: Request) {
     if (!data.status) {
       return Response.json(
         { error: data.message || "Unable to initialize transaction" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -56,7 +56,7 @@ export async function initializeTransaction(request: Request) {
   } catch {
     return Response.json(
       { error: "Failed to initialize transaction" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

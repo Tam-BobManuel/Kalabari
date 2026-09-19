@@ -9,7 +9,7 @@ export async function verifyTransaction(request: Request) {
   if (!secretKey) {
     return Response.json(
       { error: "Paystack secret key is not configured" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 
@@ -18,7 +18,7 @@ export async function verifyTransaction(request: Request) {
       `https://api.paystack.co/transaction/verify/${reference}`,
       {
         headers: { Authorization: `Bearer ${secretKey}` },
-      }
+      },
     );
 
     const data = await response.json();
@@ -26,7 +26,7 @@ export async function verifyTransaction(request: Request) {
     if (!data.status) {
       return Response.json(
         { error: data.message || "Unable to verify transaction" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -39,7 +39,7 @@ export async function verifyTransaction(request: Request) {
   } catch {
     return Response.json(
       { error: "Failed to verify transaction" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

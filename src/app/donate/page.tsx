@@ -1,6 +1,6 @@
+import DonateForm from "@/features/payment/components/DonateForm";
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import DonateForm from "@/features/payment/components/DonateForm";
 
 export const metadata: Metadata = {
   title: "Donate - Kalabari",

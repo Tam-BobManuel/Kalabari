@@ -1,14 +1,20 @@
-'use client'
-import { useState, useEffect } from 'react';
+"use client";
+import { useEffect, useState } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import type { Imager } from "../types";
 
-export default function GallerySearch({ images, setFilteredImages }: { images: Imager[]; setFilteredImages: React.Dispatch<React.SetStateAction<Imager[]>> }) {
-  const [searchTerm, setSearchTerm] = useState('');
+export default function GallerySearch({
+  images,
+  setFilteredImages,
+}: {
+  images: Imager[];
+  setFilteredImages: React.Dispatch<React.SetStateAction<Imager[]>>;
+}) {
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    const filtered = images.filter(image =>
-      image.data.title.toLowerCase().includes(searchTerm.toLowerCase())
+    const filtered = images.filter((image) =>
+      image.data.title.toLowerCase().includes(searchTerm.toLowerCase()),
     );
     setFilteredImages(filtered);
   }, [searchTerm, images, setFilteredImages]);
@@ -18,7 +24,11 @@ export default function GallerySearch({ images, setFilteredImages }: { images: I
   };
 
   return (
-    <div className={'flex items-center gap-2 bg-[#434343] w-full lg:w-[40%] p-2 mt-6 mb-3'}>
+    <div
+      className={
+        "flex items-center gap-2 bg-[#434343] w-full lg:w-[40%] p-2 mt-6 mb-3"
+      }
+    >
       <span className="inline-block text-[#FFFFFF] border-r-[1px] border-[#000000] pr-2">
         <HiOutlineSearch size={22} className="text-[#FFFFFF]" />
       </span>

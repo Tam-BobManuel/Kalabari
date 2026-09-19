@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { Imager } from "../types";
 
 const PAGE_SIZE = 8;
@@ -13,24 +13,26 @@ export function useInfiniteImages() {
   const bottomBoundaryRef = useRef<HTMLDivElement | null>(null);
   const fetchedImageIds = useRef(new Set<string>());
 
-  const fetchImages = async () => {
+  const fetchImages = useCallback(async () => {
     try {
       const response = await fetch(
-        `https://cdn.builder.io/api/v3/content/images?apiKey=${BUILDER_IO_API}&limit=${PAGE_SIZE}&offset=${offset}`
+        `https://cdn.builder.io/api/v3/content/images?apiKey=${BUILDER_IO_API}&limit=${PAGE_SIZE}&offset=${offset}`,
       );
       const data = await response.json();
-      let x = (data?.results)
+      const x = data?.results;
 
       if (x?.length === 0) {
         setHasMore(false);
         return;
       }
 
-      const newImages = data.results.filter((image: Imager) => !fetchedImageIds.current.has(image.id));
+      const newImages = data.results.filter(
+        (image: Imager) => !fetchedImageIds.current.has(image.id),
+      );
 
-      newImages.forEach((image: Imager) => {
+      for (const image of newImages) {
         fetchedImageIds.current.add(image.id);
-      });
+      }
 
       if (newImages.length > 0) {
         setImages((prevImages) => [...prevImages, ...newImages]);
@@ -43,12 +45,11 @@ export function useInfiniteImages() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [offset]);
 
   useEffect(() => {
     fetchImages();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [offset]);
+  }, [fetchImages]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -57,7 +58,7 @@ export function useInfiniteImages() {
           setOffset((prevOffset) => prevOffset + PAGE_SIZE);
         }
       },
-      { threshold: 1.0 }
+      { threshold: 1.0 },
     );
 
     const bottomBoundary = bottomBoundaryRef.current;

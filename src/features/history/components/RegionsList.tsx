@@ -1,8 +1,8 @@
+import Back from "@/features/shared/components/Back";
 import React from "react";
-import DuoCard from "./DuoCard";
 import ReactHtmlParser from "react-html-parser";
 import regions from "../data/regions.json";
-import Back from "@/features/shared/components/Back";
+import DuoCard from "./DuoCard";
 
 export default function RegionsList() {
   return (
@@ -12,7 +12,12 @@ export default function RegionsList() {
       {regions.map((region, index) => (
         <DuoCard
           key={region.slug}
-          text={ReactHtmlParser(region.detail.map((item) => item.text).join(" ").substring(0, 300) + "...")}
+          text={ReactHtmlParser(
+            `${region.detail
+              .map((item) => item.text)
+              .join(" ")
+              .substring(0, 300)}...`,
+          )}
           imageUrl={`/images/regions/${region.photo}`}
           mobileImageUrl={`/images/regions/${region.photo}`}
           linkUrl={`/history/kalabari/regions/${region.slug}`}

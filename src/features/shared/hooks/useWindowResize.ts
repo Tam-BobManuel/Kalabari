@@ -1,5 +1,5 @@
-"use client"
-import { useState, useEffect } from 'react';
+"use client";
+import { useEffect, useState } from "react";
 
 // Custom Hook to detect PC screen size
 export const useOnPC = (initialValue: boolean): boolean => {
@@ -10,10 +10,10 @@ export const useOnPC = (initialValue: boolean): boolean => {
       setIsPC(window.innerWidth >= 896);
     }
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     handleResize();
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return isPC;
@@ -28,10 +28,10 @@ export const useOnTablet = (initialValue: boolean): boolean => {
       setIsTablet(window.innerWidth >= 700);
     }
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     handleResize();
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return isTablet;

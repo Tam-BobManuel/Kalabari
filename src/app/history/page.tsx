@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
 import HistoryOverview from "@/features/history";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "History - Kalabari",

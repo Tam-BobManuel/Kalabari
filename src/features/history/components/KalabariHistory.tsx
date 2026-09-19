@@ -1,7 +1,7 @@
+import Back from "@/features/shared/components/Back";
+import parse from "html-react-parser";
 import React from "react";
 import data from "../data/Origin.json";
-import parse from "html-react-parser";
-import Back from "@/features/shared/components/Back";
 
 export default function KalabariHistoryComp() {
   return (
@@ -9,13 +9,13 @@ export default function KalabariHistoryComp() {
       <Back />
       {/* HISTORY OF KALABARI  */}
       <h1 className="text-4xl text-center">{data.title}</h1>
-      {data.content.map((paragraph, index) => (
-        <div key={index} className="text-xl text-justify leading-10">
+      {data.content.map((paragraph) => (
+        <div key={paragraph.text} className="text-xl text-justify leading-10">
           {parse(paragraph.text)}
           {paragraph.list && (
             <ol className="list-decimal pl-8">
-              {paragraph.list.map((item, index) => (
-                <li key={index}>{item.item}</li>
+              {paragraph.list.map((item) => (
+                <li key={item.item}>{item.item}</li>
               ))}
             </ol>
           )}
@@ -23,14 +23,16 @@ export default function KalabariHistoryComp() {
       ))}
 
       {/* TOWNS OF KALABARI */}
-      <div className="text-3xl text-center">{parse(data.presentKingdom.title)}</div>
-      {data.presentKingdom.townsAndVillages.map((town, index) => (
-        <div key={index} className="text-xl text-justify leading-10">
+      <div className="text-3xl text-center">
+        {parse(data.presentKingdom.title)}
+      </div>
+      {data.presentKingdom.townsAndVillages.map((town) => (
+        <div key={town.text} className="text-xl text-justify leading-10">
           {parse(town.text)}
           {town.list && (
             <ol className="list-decimal pl-8">
-              {town.list.map((item, index) => (
-                <li key={index}>{item.item}</li>
+              {town.list.map((item) => (
+                <li key={item.item}>{item.item}</li>
               ))}
             </ol>
           )}
@@ -38,8 +40,8 @@ export default function KalabariHistoryComp() {
       ))}
       {/* OCCUPATION OF KALABARI */}
       <div className="text-3xl text-center">{parse(data.occupation.title)}</div>
-      {data.occupation.content.map((job, index) => (
-        <div key={index} className="text-xl text-justify leading-10">
+      {data.occupation.content.map((job) => (
+        <div key={job.text} className="text-xl text-justify leading-10">
           {parse(job.text)}
         </div>
       ))}

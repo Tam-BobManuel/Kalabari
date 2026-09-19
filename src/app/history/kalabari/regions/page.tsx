@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
 import RegionsList from "@/features/history/components/RegionsList";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Regions - Kalabari",

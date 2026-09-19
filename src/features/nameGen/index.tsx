@@ -1,8 +1,8 @@
-"use client"
-import type React from "react";
-import { useState } from "react";
+"use client";
 //@ts-expect-error
 import ijawNames from "ijaw-names";
+import type React from "react";
+import { useState } from "react";
 import NameGenTabs from "./components/NameGenTabs";
 import NameGenerator from "./components/NameGenerator";
 import NameMeaningSearch from "./components/NameMeaningSearch";
@@ -49,7 +49,10 @@ export default function NameGen() {
     setDisplayOption(option);
   };
 
-  const handleOptionKeyPress = (event: React.KeyboardEvent<HTMLHeadingElement>, option: string) => {
+  const handleOptionKeyPress = (
+    event: React.KeyboardEvent<HTMLHeadingElement>,
+    option: string,
+  ) => {
     if (event.key === "Enter") {
       handleOptionClick(option);
     }
@@ -84,7 +87,8 @@ export default function NameGen() {
         </div>
       </div>
       <p className="text-center">
-        *these names involve names that are not just specific to Kalabari but the ijaws as a whole
+        *these names involve names that are not just specific to Kalabari but
+        the ijaws as a whole
       </p>
     </main>
   );

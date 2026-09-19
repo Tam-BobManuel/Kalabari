@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
 import RoyalComingSoon from "@/features/history/components/RoyalComingSoon";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Royal History - Kalabari",

@@ -1,11 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/features/shared/ui/card";
 import { Button } from "@/features/shared/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/features/shared/ui/card";
 import { Input } from "@/features/shared/ui/input";
 import { Label } from "@/features/shared/ui/label";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import { ClipLoader } from "react-spinners";
 import DonationAmountSelector from "./DonationAmountSelector";
 import DonationSuccess from "./DonationSuccess";
@@ -27,7 +33,9 @@ export default function DonateForm() {
       const verify = async () => {
         setLoading(true);
         try {
-          const res = await fetch(`/api/paystack/verify?reference=${reference}`);
+          const res = await fetch(
+            `/api/paystack/verify?reference=${reference}`,
+          );
           const data = await res.json();
           if (data.status === "success") {
             setSuccess(true);
@@ -75,7 +83,9 @@ export default function DonateForm() {
       const data = await res.json();
 
       if (!res.ok) {
-        setError(data.error || "Unable to start your donation. Please try again.");
+        setError(
+          data.error || "Unable to start your donation. Please try again.",
+        );
         setLoading(false);
         return;
       }
@@ -94,9 +104,13 @@ export default function DonateForm() {
   return (
     <div className="flex flex-col gap-8">
       <div className="text-center max-w-2xl mx-auto">
-        <h1 className="text-4xl md:text-5xl alt-font text-white">Support Kalabari Culture</h1>
+        <h1 className="text-4xl md:text-5xl alt-font text-white">
+          Support Kalabari Culture
+        </h1>
         <p className="text-lg text-[#8D8D8D] mt-4">
-          Your donations help us document, preserve, and share the rich heritage of the Kalabari people. Every amount counts, and we are grateful for your support.
+          Your donations help us document, preserve, and share the rich heritage
+          of the Kalabari people. Every amount counts, and we are grateful for
+          your support.
         </p>
       </div>
 
@@ -117,7 +131,9 @@ export default function DonateForm() {
             />
 
             <div>
-              <Label htmlFor="name" className="text-base mb-2 block">Name (optional)</Label>
+              <Label htmlFor="name" className="text-base mb-2 block">
+                Name (optional)
+              </Label>
               <Input
                 id="name"
                 placeholder="Your name..."
@@ -128,7 +144,9 @@ export default function DonateForm() {
             </div>
 
             <div>
-              <Label htmlFor="email" className="text-base mb-2 block">Email</Label>
+              <Label htmlFor="email" className="text-base mb-2 block">
+                Email
+              </Label>
               <Input
                 id="email"
                 type="email"
@@ -140,10 +158,20 @@ export default function DonateForm() {
               />
             </div>
 
-            {error && <p className="text-red-400 text-sm text-center">{error}</p>}
+            {error && (
+              <p className="text-red-400 text-sm text-center">{error}</p>
+            )}
 
-            <Button type="submit" disabled={loading} className="w-full text-base py-6 bg-[#5F7FFF] hover:bg-[#5F7FFF]/90">
-              {loading ? <ClipLoader size={20} color="#ffffff" /> : "Donate Securely"}
+            <Button
+              type="submit"
+              disabled={loading}
+              className="w-full text-base py-6 bg-[#5F7FFF] hover:bg-[#5F7FFF]/90"
+            >
+              {loading ? (
+                <ClipLoader size={20} color="#ffffff" />
+              ) : (
+                "Donate Securely"
+              )}
             </Button>
           </form>
         </CardContent>

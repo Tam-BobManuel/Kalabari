@@ -1,10 +1,10 @@
 "use client";
-import { CSSProperties, useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
-import NavBar from "./NavBar";
-import Footer from "./Footer";
+import { usePathname } from "next/navigation";
+import { type CSSProperties, useEffect, useState } from "react";
 import CircleLoader from "react-spinners/CircleLoader";
-import FlareCursor from './FlareCursor';
+import FlareCursor from "./FlareCursor";
+import Footer from "./Footer";
+import NavBar from "./NavBar";
 
 const override: CSSProperties = {
   display: "block",
@@ -18,15 +18,21 @@ export const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     const handlePreventDefault = (e: Event) => e.preventDefault();
-    document.addEventListener('copy', handlePreventDefault);
-    document.addEventListener('dragstart', handlePreventDefault);
-    document.addEventListener('contextmenu', handlePreventDefault);
-    console.log("%c/------------------------/\n\n%cWE ARE SEEKING VOLUNTEERS%c\n\n/------------------------/%c", 'font-size: 18px; font-weight: bold; color: #34C759;', 'font-size: 18px; font-weight: bold; color: #34C759;', 'font-size: 18px; font-weight: bold; color: #34C759;', 'color: #000;');
+    document.addEventListener("copy", handlePreventDefault);
+    document.addEventListener("dragstart", handlePreventDefault);
+    document.addEventListener("contextmenu", handlePreventDefault);
+    console.log(
+      "%c/------------------------/\n\n%cWE ARE SEEKING VOLUNTEERS%c\n\n/------------------------/%c",
+      "font-size: 18px; font-weight: bold; color: #34C759;",
+      "font-size: 18px; font-weight: bold; color: #34C759;",
+      "font-size: 18px; font-weight: bold; color: #34C759;",
+      "color: #000;",
+    );
 
     return () => {
-      document.removeEventListener('copy', handlePreventDefault);
-      document.removeEventListener('dragstart', handlePreventDefault);
-      document.removeEventListener('contextmenu', handlePreventDefault);
+      document.removeEventListener("copy", handlePreventDefault);
+      document.removeEventListener("dragstart", handlePreventDefault);
+      document.removeEventListener("contextmenu", handlePreventDefault);
     };
   }, []);
 
@@ -56,7 +62,7 @@ export const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
       {pathname?.includes("/admin") ? null : <NavBar />}
       <FlareCursor />
       {children}
-      {!excludedPathnames.includes(pathname ?? '') && <Footer />}
+      {!excludedPathnames.includes(pathname ?? "") && <Footer />}
     </>
   );
 };

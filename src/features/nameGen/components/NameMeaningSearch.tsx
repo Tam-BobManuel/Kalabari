@@ -32,7 +32,10 @@ export default function NameMeaningSearch({
         <p className="inline">{secondMeaning}</p>
         <p className="italic inline text-[#8B0505]">{error}</p>
       </div>
-      <Button onClick={onSearch} className="text-white text-xl w-full font-medium mt-5">
+      <Button
+        onClick={onSearch}
+        className="text-white text-xl w-full font-medium mt-5"
+      >
         FIND MEANING
       </Button>
     </>

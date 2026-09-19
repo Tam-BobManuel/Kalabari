@@ -23,9 +23,12 @@ export default function RotatingText() {
       setTextIndex((prev) => (prev + 1) % TEXTS.length);
       timeout = setTimeout(() => setCharCount(1), TYPE_SPEED);
     } else {
-      timeout = setTimeout(() => {
-        setCharCount((prev) => prev + (deleting ? -1 : 1));
-      }, deleting ? DELETE_SPEED : TYPE_SPEED);
+      timeout = setTimeout(
+        () => {
+          setCharCount((prev) => prev + (deleting ? -1 : 1));
+        },
+        deleting ? DELETE_SPEED : TYPE_SPEED,
+      );
     }
 
     return () => clearTimeout(timeout);
@@ -34,7 +37,9 @@ export default function RotatingText() {
   return (
     <h1 className="text-center text-white text-7xl sm:text-8xl md:text-9xl alt-font text-shadow whitespace-pre-line">
       {TEXTS[textIndex].slice(0, charCount)}
-      <span className="animate-pulse inline-block ml-1 text-white opacity-80">|</span>
+      <span className="animate-pulse inline-block ml-1 text-white opacity-80">
+        |
+      </span>
     </h1>
   );
 }

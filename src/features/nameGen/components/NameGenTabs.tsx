@@ -1,12 +1,19 @@
 interface NameGenTabsProps {
   displayOption: string;
   onSelect: (option: string) => void;
-  onKeyPress: (event: React.KeyboardEvent<HTMLHeadingElement>, option: string) => void;
+  onKeyPress: (
+    event: React.KeyboardEvent<HTMLHeadingElement>,
+    option: string,
+  ) => void;
 }
 
 const tabs = ["random", "meaning"];
 
-export default function NameGenTabs({ displayOption, onSelect, onKeyPress }: NameGenTabsProps) {
+export default function NameGenTabs({
+  displayOption,
+  onSelect,
+  onKeyPress,
+}: NameGenTabsProps) {
   return (
     <div className="place-content-center w-full md:w-1/6 p-2 text-xl text-center flex lg:flex-col md:flex-col sm:flex-row xs:flex-row">
       {tabs.map((tab) => (

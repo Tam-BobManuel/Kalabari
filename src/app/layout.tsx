@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://kalabari.vercel.app"),
   title: {
     default: APP_DEFAULT_TITLE,
-    template: `%s`,
+    template: "%s",
   },
   description: APP_DESCRIPTION,
   applicationName: APP_NAME,

@@ -9,7 +9,7 @@ function FlareCursor() {
   const [isPointer, setIsPointer] = useState(false);
 
   // Event handler for the mousemove event.
-  const handleMouseMove = (e: { clientX: any; clientY: any; target: any; }) => {
+  const handleMouseMove = (e: { clientX: any; clientY: any; target: any }) => {
     // Update the cursor position based on the mouse coordinates.
     setPosition({ x: e.clientX, y: e.clientY });
 
@@ -18,7 +18,7 @@ function FlareCursor() {
 
     // Check if the cursor is over a clickable element by inspecting the cursor style.
     setIsPointer(
-      window.getComputedStyle(target).getPropertyValue("cursor") === "pointer"
+      window.getComputedStyle(target).getPropertyValue("cursor") === "pointer",
     );
   };
 
