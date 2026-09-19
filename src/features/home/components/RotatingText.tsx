@@ -5,7 +5,7 @@ const TEXTS = ["Kalabari se\nalua ke obem", "welcome to Kalabari"];
 
 const TYPE_SPEED = 55;
 const DELETE_SPEED = 30;
-const HOLD_TIME = 400;
+const HOLD_TIME = 1600;
 
 export default function RotatingText() {
   const [textIndex, setTextIndex] = useState(0);
