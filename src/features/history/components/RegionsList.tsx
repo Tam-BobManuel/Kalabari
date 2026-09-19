@@ -1,6 +1,6 @@
 import Back from "@/features/shared/components/Back";
+import parse from "html-react-parser";
 import React from "react";
-import ReactHtmlParser from "react-html-parser";
 import regions from "../data/regions.json";
 import DuoCard from "./DuoCard";
 
@@ -12,7 +12,7 @@ export default function RegionsList() {
       {regions.map((region, index) => (
         <DuoCard
           key={region.slug}
-          text={ReactHtmlParser(
+          text={parse(
             `${region.detail
               .map((item) => item.text)
               .join(" ")

@@ -1,6 +1,6 @@
 import Back from "@/features/shared/components/Back";
+import parse from "html-react-parser";
 import React from "react";
-import HTMLParser from "react-html-parser";
 
 const text = `
   <p>As an undergraduate Economist and web developer hailing from Kalabari, I was driven to create a website showcasing my culture due to the scarcity of readily accessible and accurate information on our history and heritage.</p>
@@ -24,7 +24,7 @@ export default function AboutContent() {
       className="mt-5 p-4"
     >
       <Back />
-      {HTMLParser(text)}
+      {parse(text)}
     </article>
   );
 }

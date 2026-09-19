@@ -1,7 +1,7 @@
 import Wharf from "@/assets/Images/history-img/Abonnema Wharf.jpeg";
 import Ecran from "@/assets/Images/history-img/Ecran-Kalabari-Art.jpg";
+import parse from "html-react-parser";
 import React from "react";
-import ReactHtmlParser from "react-html-parser";
 import briefKalabari from "../data/Origin.json";
 import DuoCard from "./DuoCard";
 
@@ -27,7 +27,7 @@ export default function HistoryOverviewComp() {
       aria-label="You're at the History section"
     >
       <DuoCard
-        text={ReactHtmlParser(briefKalabariTruncated)}
+        text={parse(briefKalabariTruncated)}
         imageUrl={Ecran}
         mobileImageUrl="/images/Ecran-Kalabari-Art.jpg"
         linkUrl="/history/kalabari"
@@ -36,7 +36,7 @@ export default function HistoryOverviewComp() {
         reverse={false}
       />
       <DuoCard
-        text={ReactHtmlParser(briefRegion)}
+        text={parse(briefRegion)}
         imageUrl={Wharf}
         mobileImageUrl="/images/regions/AbonnemaWharf.jpeg"
         linkUrl="/history/kalabari/regions"
