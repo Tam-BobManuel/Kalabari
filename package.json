@@ -5,8 +5,8 @@
 	"type": "module",
 	"packageManager": "npm@11.1.1",
 	"scripts": {
-		"dev": "next dev --turbopack",
-		"build": "next build",
+		"dev": "next dev",
+		"build": "next build --webpack",
 		"start": "next start",
 		"lint": "biome check ."
 	},
