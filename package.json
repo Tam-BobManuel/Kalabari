@@ -29,7 +29,7 @@
 		"lodash": "^4.17.21",
 		"lucide-react": "^0.400.0",
 		"mongodb": "^6.6.1",
-		"mongoose": "^8.24.1",
+		"mongoose": "^8.24.7",
 		"next": "16.4.2",
 		"react": "19.2.8",
 		"react-dom": "19.2.8",
